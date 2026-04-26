@@ -27,6 +27,7 @@ Update `booking-state.md` when:
 
 - The user provides or corrects artist profile details, positioning, EPK assets, target markets, goals, constraints, or preferences.
 - New opportunities or source links are found.
+- An opportunity receives or changes a fit score, fit classification, score breakdown, red flags, recommended next action, or contact-research recommendation.
 - A contact route is verified, rejected, or marked uncertain.
 - A draft is created or materially revised.
 - An approval request is created, approved, rejected, changed, or expired.
@@ -100,6 +101,31 @@ Use `examples/booking-desk/booking-state.md` as the canonical template for new p
 - Keep do-not-contact entries separate from general contacts.
 - Avoid duplicating the same fact across multiple sections unless the second location links back to the source section or ID.
 - Do not erase consequential context after a decision changes.
+
+## Opportunity Pipeline Guidance
+
+`Opportunity Pipeline` entries should support:
+
+- Opportunity ID.
+- Name.
+- Type.
+- City and country.
+- Source links.
+- Status.
+- Priority.
+- Fit score.
+- Fit classification.
+- Score breakdown.
+- Confirmed facts.
+- Assumptions.
+- Unknowns.
+- Red flags.
+- Recommended next action.
+- Contact research next.
+- Owner.
+- Notes.
+
+Use `skills/fit-classification/SKILL.md` before contact verification or outreach drafting. Keep score evidence traceable to source links, user-provided context, or clearly labeled assumptions. If a recommended next action is external-facing or consequential, route it through `skills/approval-before-action/SKILL.md`.
 
 ## Approval Queue Guidance
 

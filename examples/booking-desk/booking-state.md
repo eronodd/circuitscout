@@ -48,9 +48,9 @@
 
 ## Opportunity Pipeline
 
-| Opportunity ID | Name | Type | City | Country | Source links | Status | Priority | Fit classification | Next action | Owner | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| OPP-001 | Unknown | Unknown | Unknown | Unknown | Unknown | New | Unknown | Unknown | Research official sources | Unknown | Unknown |
+| Opportunity ID | Name | Type | City | Country | Source links | Status | Priority | Fit score | Fit classification | Score breakdown | Confirmed facts | Assumptions | Unknowns | Red flags | Next action | Contact research next | Owner | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| OPP-001 | Unknown | Unknown | Unknown | Unknown | Unknown | New | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Research official sources | Unknown | Unknown | Unknown |
 
 ## Contact Register
 

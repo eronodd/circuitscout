@@ -90,7 +90,7 @@ Use this workflow as the default routing map:
 11. Calendar/CRM update.
 12. Retrospective.
 
-Fit classification is part of the workflow map, but the dedicated fit-classification skill is not implemented in this slice. Until it exists, use simple, clearly labeled draft classifications only when needed and mark uncertainty in state.
+Use `skills/fit-classification/SKILL.md` for opportunity qualification before contact verification or outreach drafting. Fit classification is an internal scoring and recommendation step, so it does not require approval by itself. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
 
 ## Handoff Rules
 
@@ -101,6 +101,7 @@ When handing work to another future skill or agent, include:
 - Relevant booking-state sections to read first.
 - Confirmed facts, assumptions, unknowns, and user-provided preferences.
 - Source links that support the current state.
+- Fit score, classification, score breakdown, red flags, and unknowns when an opportunity has been classified.
 - Approval gates that may apply next.
 - Exact next action requested.
 
@@ -113,6 +114,8 @@ Use `skills/booking-state/SKILL.md` whenever a workflow needs to read, initializ
 Before starting a booking workflow, read the current booking state if one exists. If it does not exist and the user wants ongoing tracking, initialize it from `examples/booking-desk/booking-state.md`.
 
 Update state when new confirmed facts, user preferences, assumptions, unknowns, opportunities, contacts, drafts, approvals, outreach events, follow-ups, replies, calendar actions, CRM/spreadsheet actions, risks, decisions, handoffs, open questions, or retrospective notes are created or changed.
+
+When an opportunity is classified, record its fit score, fit classification, score breakdown, confirmed facts, assumptions, unknowns, red flags, source links, recommended next action, and whether contact research should happen next.
 
 Outreach, approval, decision, and handoff records are append-only audit trails. Add new rows or notes rather than rewriting history, except for obvious typo fixes that do not alter meaning.
 
