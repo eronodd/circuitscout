@@ -94,6 +94,8 @@ Use `skills/fit-classification/SKILL.md` for opportunity qualification before co
 
 Use `skills/contact-verification/SKILL.md` after fit classification and before outreach drafting to verify the safest official contact route. Contact verification is internal and does not require approval by itself. If it recommends any external-facing next action, including email, contact form submission, social DM, Gmail draft creation if connected later, CRM/spreadsheet writes, or contacting a private route, route that action through `skills/approval-before-action/SKILL.md`.
 
+Use `skills/outreach-drafting/SKILL.md` after contact verification and before approval-before-action to prepare source-backed booking outreach, follow-ups, or reply drafts for human review. Outreach drafting is internal and does not require approval when it only creates draft text or updates local pending draft records. It may proceed only when the opportunity is classified `A`, `B`, or explicitly approved `C`/`Monitor`, the contact route confidence is `Verified` or `Likely`, no do-not-contact conflict exists, required artist facts/assets are present or clearly marked as missing, and no serious red flags block outreach. Any recommended external action, including sending, replying, forwarding, creating a Gmail draft if connected later, submitting a form, sending a DM, or writing externally, must route through `skills/approval-before-action/SKILL.md`.
+
 ## Handoff Rules
 
 When handing work to another future skill or agent, include:
@@ -105,6 +107,7 @@ When handing work to another future skill or agent, include:
 - Source links that support the current state.
 - Fit score, classification, score breakdown, red flags, and unknowns when an opportunity has been classified.
 - Contact route type, confidence, source link, source type, safety notes, and do-not-contact status when a contact has been verified.
+- Draft ID, draft type, intended contact route, subject, personalization evidence, confirmed facts used, missing fields, risk notes, and draft status when outreach has been prepared.
 - Approval gates that may apply next.
 - Exact next action requested.
 
@@ -121,6 +124,8 @@ Update state when new confirmed facts, user preferences, assumptions, unknowns, 
 When an opportunity is classified, record its fit score, fit classification, score breakdown, confirmed facts, assumptions, unknowns, red flags, source links, recommended next action, and whether contact research should happen next.
 
 When a contact route is verified, record its contact ID, opportunity ID, route type, route value or description, role/purpose, source link, source type, confidence level, confirmed facts, assumptions, unknowns, duplicate/conflict notes, safety notes, do-not-contact status, last verified date, next action, and whether outreach drafting can happen next.
+
+When an outreach draft is prepared, record its draft ID, opportunity ID, contact ID, draft type, intended recipient/contact route, subject, draft status, created date, source evidence, confirmed facts used, missing fields, risk notes, approval action ID if created later, sent status, sent date, follow-up due date, and notes. Prepared drafts belong in `Draft Outbox` and must not be treated as sent outreach.
 
 Outreach, approval, decision, and handoff records are append-only audit trails. Add new rows or notes rather than rewriting history, except for obvious typo fixes that do not alter meaning.
 

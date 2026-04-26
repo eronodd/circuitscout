@@ -60,9 +60,11 @@
 
 ## Draft Outbox
 
-| Draft ID | Opportunity ID | Contact ID | Draft type | Subject/angle | Source/context | Status | Approval ID | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| DRF-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Not started | Unknown | Unknown |
+Draft Outbox tracks prepared internal draft text and review state. It is not the Outreach Log. Prepared drafts must not be marked as sent unless the human confirms sending or a future approved connector completes the external action.
+
+| Draft ID | Opportunity ID | Contact ID | Draft type | Intended recipient/contact route | Subject | Draft status | Created date | Source evidence | Confirmed facts used | Missing fields | Risk notes | Approval action ID | Sent status | Sent date | Follow-up due date | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| DRF-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Not started | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Not sent | Unknown | Unknown | Unknown |
 
 ## Approval Queue
 
@@ -71,6 +73,8 @@
 | ACT-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Not requested | Unknown | Unknown | Unknown | Unknown |
 
 ## Outreach Log
+
+Outreach Log records sent or externally executed outreach only. Prepared drafts belong in Draft Outbox until a human-approved external action occurs.
 
 | Outreach ID | Opportunity ID | Contact ID | Channel | Subject | Draft/source | Sent status | Sent date | Approved by human | Follow-up due date | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

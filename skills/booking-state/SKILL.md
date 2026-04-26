@@ -43,6 +43,7 @@ Update `booking-state.md` when:
 
 The following sections are audit records:
 
+- `Draft Outbox`
 - `Approval Queue`
 - `Outreach Log`
 - `Decision Log`
@@ -155,6 +156,54 @@ Use `skills/contact-verification/SKILL.md` after fit classification and before o
 Use confidence values from contact verification: `Verified`, `Likely`, `Uncertain`, `Do not use`, or `Unknown`. If confidence is below `Likely`, do not route the opportunity to outreach drafting yet. If the route conflicts with a do-not-contact entry or appears private, guessed, leaked, suspicious, outdated, or unsafe, mark it `Do not use`, record the safety reason, and recommend more research or a human check rather than outreach.
 
 Contact verification may prepare a proposed local contact record without approval. Any external-facing next action, including email, contact form submission, social DM, Gmail draft creation if connected later, CRM/spreadsheet writes, or contact through a private route, must route through `skills/approval-before-action/SKILL.md`.
+
+## Draft Outbox Guidance
+
+Use `skills/outreach-drafting/SKILL.md` after contact verification and before approval-before-action to prepare source-backed outreach drafts for human review.
+
+`Draft Outbox` entries should support:
+
+- Draft ID.
+- Opportunity ID.
+- Contact ID.
+- Draft type.
+- Intended recipient/contact route.
+- Subject.
+- Draft status.
+- Created date.
+- Source evidence.
+- Confirmed facts used.
+- Missing fields.
+- Risk notes.
+- Approval action ID if created later.
+- Sent status.
+- Sent date.
+- Follow-up due date.
+- Notes.
+
+Prepared drafts are internal review records. Use statuses such as `Pending review`, `Needs revision`, `Approved for external action`, `Rejected`, `Replaced`, or `Archived`. Do not mark a draft as sent unless the human confirms it was sent manually or a future approved connector completes the send.
+
+Draft Outbox is not Outreach Log. Draft Outbox records prepared text and review status. Outreach Log records sent or externally executed outreach only.
+
+If a draft recommends sending, replying, forwarding, creating a Gmail draft if connected later, using a contact form, sending a social DM, or writing externally, route the proposed action through `skills/approval-before-action/SKILL.md`. Store the resulting approval action ID on the draft only after the approval request exists.
+
+## Outreach Log Guidance
+
+`Outreach Log` records sent or externally executed outreach only. Prepared drafts must not be copied into Outreach Log or marked as sent before external action occurs.
+
+`Outreach Log` entries should support:
+
+- Outreach ID.
+- Opportunity ID.
+- Contact ID.
+- Channel.
+- Subject.
+- Draft/source.
+- Sent status.
+- Sent date.
+- Approved by human.
+- Follow-up due date.
+- Notes.
 
 ## Approval Queue Guidance
 
