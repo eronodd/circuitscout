@@ -127,6 +127,35 @@ Use `examples/booking-desk/booking-state.md` as the canonical template for new p
 
 Use `skills/fit-classification/SKILL.md` before contact verification or outreach drafting. Keep score evidence traceable to source links, user-provided context, or clearly labeled assumptions. If a recommended next action is external-facing or consequential, route it through `skills/approval-before-action/SKILL.md`.
 
+## Contact Register Guidance
+
+Use `skills/contact-verification/SKILL.md` after fit classification and before outreach drafting.
+
+`Contact Register` entries should support:
+
+- Contact ID.
+- Opportunity ID.
+- Name.
+- Organization.
+- Role.
+- Contact route type.
+- Contact value/route.
+- Source link.
+- Source type.
+- Confidence.
+- Confirmed facts.
+- Assumptions.
+- Unknowns.
+- Duplicate/conflict notes.
+- Permission/safety notes.
+- Do-not-contact status.
+- Last verified date.
+- Next action.
+
+Use confidence values from contact verification: `Verified`, `Likely`, `Uncertain`, `Do not use`, or `Unknown`. If confidence is below `Likely`, do not route the opportunity to outreach drafting yet. If the route conflicts with a do-not-contact entry or appears private, guessed, leaked, suspicious, outdated, or unsafe, mark it `Do not use`, record the safety reason, and recommend more research or a human check rather than outreach.
+
+Contact verification may prepare a proposed local contact record without approval. Any external-facing next action, including email, contact form submission, social DM, Gmail draft creation if connected later, CRM/spreadsheet writes, or contact through a private route, must route through `skills/approval-before-action/SKILL.md`.
+
 ## Approval Queue Guidance
 
 Use `skills/approval-before-action/SKILL.md` before creating, approving, rejecting, blocking, or executing approval-gated actions.

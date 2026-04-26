@@ -54,9 +54,9 @@
 
 ## Contact Register
 
-| Contact ID | Opportunity ID | Name | Role | Email/contact route | Source link | Confidence | Permission/safety notes | Do-not-contact status |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CON-001 | OPP-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
+| Contact ID | Opportunity ID | Name | Organization | Role | Contact route type | Contact value/route | Source link | Source type | Confidence | Confirmed facts | Assumptions | Unknowns | Duplicate/conflict notes | Permission/safety notes | Do-not-contact status | Last verified date | Next action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| CON-001 | OPP-001 | Unknown | Unknown | Unknown | manual research needed | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Research official contact route |
 
 ## Draft Outbox
 

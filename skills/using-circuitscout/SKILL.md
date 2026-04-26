@@ -92,6 +92,8 @@ Use this workflow as the default routing map:
 
 Use `skills/fit-classification/SKILL.md` for opportunity qualification before contact verification or outreach drafting. Fit classification is an internal scoring and recommendation step, so it does not require approval by itself. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
 
+Use `skills/contact-verification/SKILL.md` after fit classification and before outreach drafting to verify the safest official contact route. Contact verification is internal and does not require approval by itself. If it recommends any external-facing next action, including email, contact form submission, social DM, Gmail draft creation if connected later, CRM/spreadsheet writes, or contacting a private route, route that action through `skills/approval-before-action/SKILL.md`.
+
 ## Handoff Rules
 
 When handing work to another future skill or agent, include:
@@ -102,6 +104,7 @@ When handing work to another future skill or agent, include:
 - Confirmed facts, assumptions, unknowns, and user-provided preferences.
 - Source links that support the current state.
 - Fit score, classification, score breakdown, red flags, and unknowns when an opportunity has been classified.
+- Contact route type, confidence, source link, source type, safety notes, and do-not-contact status when a contact has been verified.
 - Approval gates that may apply next.
 - Exact next action requested.
 
@@ -116,6 +119,8 @@ Before starting a booking workflow, read the current booking state if one exists
 Update state when new confirmed facts, user preferences, assumptions, unknowns, opportunities, contacts, drafts, approvals, outreach events, follow-ups, replies, calendar actions, CRM/spreadsheet actions, risks, decisions, handoffs, open questions, or retrospective notes are created or changed.
 
 When an opportunity is classified, record its fit score, fit classification, score breakdown, confirmed facts, assumptions, unknowns, red flags, source links, recommended next action, and whether contact research should happen next.
+
+When a contact route is verified, record its contact ID, opportunity ID, route type, route value or description, role/purpose, source link, source type, confidence level, confirmed facts, assumptions, unknowns, duplicate/conflict notes, safety notes, do-not-contact status, last verified date, next action, and whether outreach drafting can happen next.
 
 Outreach, approval, decision, and handoff records are append-only audit trails. Add new rows or notes rather than rewriting history, except for obvious typo fixes that do not alter meaning.
 
