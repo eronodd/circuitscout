@@ -84,25 +84,37 @@ CircuitScout keeps the existing markdown-first architecture:
 - Auto mode may prepare internal research and drafts, but must still pause before external-facing actions.
 - Shared state will track artist profile facts, opportunity records, sources, outreach history, decisions, and next actions.
 
+The first CircuitScout-native MVP agents now live in `agents/`:
+
+- `booking-strategist`
+- `opportunity-scout`
+- `fit-classifier`
+- `contact-verifier`
+- `outreach-drafter`
+- `booking-guardian`
+
+These agents are role wrappers. The procedural source of truth remains the CircuitScout skills, especially `skills/using-circuitscout/SKILL.md`, `skills/booking-state/SKILL.md`, and the stage-specific workflow skills.
+
 ## Current Migration Status
 
-This repo has been reframed at the foundation layer only.
+This repo has been reframed at the foundation layer, and the first booking-desk workflow skills and MVP agent role surfaces now exist.
 
-Updated in this slice:
+Recently updated:
 
 - Project README and public identity.
 - Claude and Gemini activation instructions.
 - Package, Claude plugin, marketplace, and Gemini extension metadata.
 - Session-start activation hook.
+- Core booking workflow skills.
+- Booking state template and manual lead workflow example.
+- First CircuitScout-native MVP agents.
 
 Pending migration:
 
-- Full `agents/` folder content.
-- Full `skills/` folder content.
+- Remaining legacy `agents/` content.
+- Remaining legacy `skills/` content.
 - Examples and walkthroughs.
 - Paper and explanatory material.
-- Booking-specific shared state templates.
-- Fit-classification framework.
 - CRM/spreadsheet workflows.
 - Gmail, Calendar, Sheets, API, scraping, and automation integrations.
 
@@ -110,13 +122,10 @@ Designpowers-specific files may still exist inside deeper folders until those mi
 
 ## Planned Next Slices
 
-1. Define the CircuitScout shared state model for artist profile, opportunity records, source evidence, outreach log, follow-up queue, and decision history.
-2. Migrate the top-level router skill into a CircuitScout workflow router.
-3. Replace design agents with booking-desk agents for scene research, opportunity discovery, fit review, contact verification, outreach drafting, inbox triage, CRM updates, and retrospectives.
-4. Add fit-classification criteria for electronic music bookings.
-5. Add example workflows for festivals, clubs, showcases, radio shows, and collectives.
-6. Add integration plans for Gmail, Calendar, Sheets, and CRM workflows with explicit human-approval gates.
-7. Review all paper and documentation content for remaining Designpowers language.
+1. Add CircuitScout agents for inbox triage, follow-up planning, booking-state operations, and retrospective review.
+2. Add example workflows for festivals, clubs, showcases, radio shows, and collectives.
+3. Add non-executing integration plans for Gmail, Calendar, Sheets, and CRM workflows with explicit human-approval gates.
+4. Review remaining legacy skills, agents, examples, paper, and documentation content.
 
 ## Installation
 

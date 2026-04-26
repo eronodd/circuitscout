@@ -92,6 +92,30 @@ Use this workflow as the default routing map:
 13. Calendar/CRM update.
 14. Retrospective.
 
+## MVP Agent Surfaces
+
+CircuitScout agents are role wrappers. Skills remain the procedural source of truth. Use agents to clarify ownership, boundaries, and handoff behavior; use the skills below for the actual workflow rules.
+
+Current CircuitScout-native MVP agents:
+
+- `agents/booking-strategist.md` for booking goals, target markets, routing logic, priorities, constraints, and strategic direction.
+- `agents/opportunity-scout.md` for manual lead intake, scene mapping, flyer/lineup extraction from user-provided material, similar-artist route clues, and candidate opportunity preparation.
+- `agents/fit-classifier.md` for the 100-point fit model and proceed/monitor/reject/contact-verification recommendations.
+- `agents/contact-verifier.md` for safest official contact-route validation, confidence assessment, and do-not-contact checks.
+- `agents/outreach-drafter.md` for source-backed outreach, reply, and follow-up drafts prepared for human review.
+- `agents/booking-guardian.md` for approval gates, auditability, do-not-contact conflicts, and prepare-vs-execute separation.
+
+Default agent routing:
+
+1. `booking-strategist` may hand off to `opportunity-scout` or `fit-classifier`.
+2. `opportunity-scout` hands candidate opportunities to `fit-classifier`.
+3. `fit-classifier` sends qualified opportunities to `contact-verifier`.
+4. `contact-verifier` sends `Verified` or `Likely` contact routes to `outreach-drafter`.
+5. `outreach-drafter` prepares local drafts and routes external next actions to `booking-guardian` / `approval-before-action`.
+6. `booking-guardian` may review any stage before an external-facing or consequential action.
+
+Do not treat agent handoff as approval. Approval must still follow `skills/approval-before-action/SKILL.md`.
+
 Use `skills/opportunity-discovery/SKILL.md` before fit classification to normalize user-provided leads, source lists, flyers, screenshots, lineup text, scene maps, or similar-artist clues into candidate opportunity records. Opportunity discovery is internal and does not require approval when it only extracts, summarizes, deduplicates, identifies unknowns, and recommends the next internal step. It must not score final fit, verify contacts, draft outreach, contact anyone, scrape, browse, automate collection, perform OCR, or write externally. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
 
 Use `skills/fit-classification/SKILL.md` for opportunity qualification before contact verification or outreach drafting. Fit classification is an internal scoring and recommendation step, so it does not require approval by itself. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
