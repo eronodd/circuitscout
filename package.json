@@ -1,7 +1,7 @@
 {
-  "name": "designpowers",
+  "name": "circuitscout",
   "version": "1.0.0",
   "type": "module",
-  "description": "An opinionated design workflow for coding agents — research, strategy, design, accessibility, and handoff, enforced automatically.",
+  "description": "A human-directed AI booking desk for electronic music artists: research, qualify, draft, track, and follow up with approval gates.",
   "license": "MIT"
 }

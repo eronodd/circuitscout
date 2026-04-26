@@ -1,17 +1,17 @@
 {
-  "name": "designpowers",
-  "description": "Design workflow marketplace for Designpowers",
+  "name": "circuitscout",
+  "description": "Booking-desk workflow marketplace entry for CircuitScout",
   "owner": {
-    "name": "MC Dean"
+    "name": "CircuitScout"
   },
   "plugins": [
     {
-      "name": "designpowers",
-      "description": "Design workflow for coding agents: discovery, research, strategy, inclusive design, critique, and handoff — enforced automatically",
+      "name": "circuitscout",
+      "description": "Human-directed booking-desk workflow for electronic music artists: research, qualification, outreach drafting, tracking, and approval gates.",
       "version": "1.0.0",
       "source": "./",
       "author": {
-        "name": "MC Dean"
+        "name": "CircuitScout"
       }
     }
   ]

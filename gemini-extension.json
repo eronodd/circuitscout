@@ -1,6 +1,6 @@
 {
-  "name": "designpowers",
+  "name": "circuitscout",
   "version": "1.0.0",
-  "description": "Design workflow for coding agents: discovery, research, strategy, inclusive design, critique, and handoff — enforced automatically",
+  "description": "Human-directed booking-desk workflow for electronic music artists, with research, outreach drafting, tracking, and approval gates",
   "contextFileName": "GEMINI.md"
 }

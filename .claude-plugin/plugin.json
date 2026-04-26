@@ -1,12 +1,12 @@
 {
-  "name": "designpowers",
-  "description": "Design workflow for coding agents: discovery, research, strategy, inclusive design, critique, and handoff — enforced automatically",
+  "name": "circuitscout",
+  "description": "Human-directed booking-desk workflow for electronic music artists: research, qualification, outreach drafting, tracking, and approval gates.",
   "version": "1.0.0",
   "author": {
-    "name": "MC Dean"
+    "name": "CircuitScout"
   },
-  "homepage": "https://github.com/Owl-Listener/designpowers",
-  "repository": "https://github.com/Owl-Listener/designpowers",
+  "homepage": "https://github.com/eronodd/circuitscout",
+  "repository": "https://github.com/eronodd/circuitscout",
   "license": "MIT",
-  "keywords": ["design", "ux", "ui", "accessibility", "inclusive-design", "workflow", "skills"]
+  "keywords": ["booking", "electronic-music", "artists", "outreach", "crm", "workflow", "skills"]
 }
