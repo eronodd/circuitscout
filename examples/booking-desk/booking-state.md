@@ -90,9 +90,11 @@ Follow-up Queue records planned internal follow-up state. Prepared follow-up dra
 
 ## Inbox / Reply Status
 
-| Reply ID | Related outreach ID | From/contact | Received date | Summary | Sentiment/status | Required response | Approval needed | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| REP-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Yes | Unknown |
+Inbox / Reply Status tracks internal triage of inbound booking-related messages. Triage does not authorize external replies, booking decisions, availability confirmations, negotiation, or external system updates.
+
+| Triage ID | Opportunity ID | Contact ID | Outreach ID | Message source | Message date | Sender / organization | Reply category | Summary | Requested action | Deadline / timing sensitivity | Risk level | State impact | Follow-up impact | Do-not-contact impact | Recommended next internal step | Approval action ID | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| TRI-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
 
 ## Calendar Actions
 

@@ -155,6 +155,8 @@ Use `skills/contact-verification/SKILL.md` after fit classification and before o
 
 Use confidence values from contact verification: `Verified`, `Likely`, `Uncertain`, `Do not use`, or `Unknown`. If confidence is below `Likely`, do not route the opportunity to outreach drafting yet. If the route conflicts with a do-not-contact entry or appears private, guessed, leaked, suspicious, outdated, or unsafe, mark it `Do not use`, record the safety reason, and recommend more research or a human check rather than outreach.
 
+Bounced contacts and redirected contacts should trigger `skills/contact-verification/SKILL.md` before any new outreach. A bounced route should be paused or marked unsafe for the current outreach path. A redirect contact should remain unverified until contact verification confirms source quality, role fit, permission/safety notes, and whether outreach drafting can happen next.
+
 Contact verification may prepare a proposed local contact record without approval. Any external-facing next action, including email, contact form submission, social DM, Gmail draft creation if connected later, CRM/spreadsheet writes, or contact through a private route, must route through `skills/approval-before-action/SKILL.md`.
 
 ## Draft Outbox Guidance
@@ -236,7 +238,38 @@ Use statuses such as `Not ready`, `Planned`, `Due`, `Pending review`, `Needs app
 
 Follow-up planning may proceed only when there is a real prior outreach event in `Outreach Log` or the user explicitly says they sent the outreach manually, the contact route is still `Verified` or `Likely`, no do-not-contact conflict exists, the opportunity status does not block follow-up, reply status does not make follow-up inappropriate, and cadence limits have not been exceeded.
 
+Negative replies, do-not-contact requests, bounces, hostile replies, no-budget replies, closed lineups, spam, or irrelevant replies should pause or stop follow-ups. Asset requests, positive interest, availability checks, and more-information requests may create an internal reply-draft task, not an automatic send. If a reply exists, run `skills/inbox-triage/SKILL.md` before follow-up planning and use the triage result to decide whether follow-up remains appropriate.
+
 If follow-up planning recommends sending, replying, forwarding, creating a Gmail draft if connected later, using a contact form, sending a social DM, creating a calendar reminder, scheduling anything, or writing externally, route the proposed action through `skills/approval-before-action/SKILL.md`. Store the resulting approval action ID only after the approval request exists.
+
+## Inbox / Reply Status Guidance
+
+Use `skills/inbox-triage/SKILL.md` when the user provides an inbound booking-related message, excerpt, or summary, or when a future approved connector provides a message summary. Inbox triage is internal and does not require approval when it only classifies the message, extracts confirmed facts, identifies risks, recommends local state updates, and chooses the next internal step.
+
+`Inbox / Reply Status` entries should support:
+
+- Triage ID.
+- Opportunity ID.
+- Contact ID.
+- Outreach ID.
+- Message source.
+- Message date.
+- Sender / organization.
+- Reply category.
+- Summary.
+- Requested action.
+- Deadline / timing sensitivity.
+- Risk level.
+- State impact.
+- Follow-up impact.
+- Do-not-contact impact.
+- Recommended next internal step.
+- Approval action ID if created later.
+- Notes.
+
+Use reply categories from inbox triage, such as `Positive interest`, `Request for more information`, `Request for EPK/assets`, `Availability check`, `Fee/budget discussion`, `Offer or tentative offer`, `Confirmed booking request`, `Rejection / not a fit`, `No budget`, `Lineup already closed`, `Redirect to another contact`, `Out of office / automated response`, `Bounce / failed delivery`, `Unsubscribe / do not contact request`, `Negative or hostile reply`, `Needs human decision`, `Urgent / time-sensitive`, `Ambiguous / needs clarification`, or `Spam / irrelevant`.
+
+Do not treat an inbound reply as permission to accept a booking, confirm availability, negotiate terms, contact a redirect, update external systems, or mark an opportunity as `Booked`. Any external or consequential action must route through `skills/approval-before-action/SKILL.md`.
 
 ## Approval Queue Guidance
 
