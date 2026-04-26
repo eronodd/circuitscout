@@ -15,6 +15,7 @@ Read `booking-state.md` before:
 
 - Starting or resuming a CircuitScout workflow.
 - Researching opportunities, contacts, markets, or scenes for an active artist/project.
+- Discovering, normalizing, deduplicating, or preparing candidate opportunity records.
 - Drafting outreach, replies, follow-ups, approvals, calendar actions, or CRM/spreadsheet actions.
 - Updating pipeline status, contact records, approval queues, outreach logs, follow-up queues, inbox status, risks, decisions, or handoffs.
 - Making a recommendation that depends on previous booking context.
@@ -27,6 +28,7 @@ Update `booking-state.md` when:
 
 - The user provides or corrects artist profile details, positioning, EPK assets, target markets, goals, constraints, or preferences.
 - New opportunities or source links are found.
+- Opportunity discovery creates or changes a candidate record, duplicate check, source evidence summary, initial priority guess, candidate status, or recommended next skill.
 - An opportunity receives or changes a fit score, fit classification, score breakdown, red flags, recommended next action, or contact-research recommendation.
 - A contact route is verified, rejected, or marked uncertain.
 - A draft is created or materially revised.
@@ -107,11 +109,23 @@ Use `examples/booking-desk/booking-state.md` as the canonical template for new p
 
 `Opportunity Pipeline` entries should support:
 
+- Discovery ID.
 - Opportunity ID.
 - Name.
 - Type.
+- Event / series / organization relationship.
 - City and country.
+- Date or edition if known.
 - Source links.
+- Source type.
+- Evidence summary.
+- Extracted lineup / artists.
+- Venue.
+- Promoter / collective.
+- Genre / scene clues.
+- Duplicate check result.
+- Candidate status.
+- Initial priority guess.
 - Status.
 - Priority.
 - Fit score.
@@ -123,10 +137,15 @@ Use `examples/booking-desk/booking-state.md` as the canonical template for new p
 - Red flags.
 - Recommended next action.
 - Contact research next.
+- Recommended next skill.
 - Owner.
 - Notes.
 
+Use `skills/opportunity-discovery/SKILL.md` before fit classification when normalizing user-provided leads, source lists, flyers, screenshots, lineup text, scene maps, or similar-artist clues into candidate records. Discovery should preserve source links, separate confirmed facts from assumptions, mark unknowns, check duplicates against `Opportunity Pipeline` and `Contact Register`, and set a lightweight initial priority guess without scoring final fit.
+
 Use `skills/fit-classification/SKILL.md` before contact verification or outreach drafting. Keep score evidence traceable to source links, user-provided context, or clearly labeled assumptions. If a recommended next action is external-facing or consequential, route it through `skills/approval-before-action/SKILL.md`.
+
+Discovery candidate statuses should use `New candidate`, `Needs source verification`, `Ready for fit classification`, `Duplicate candidate`, `Out of scope`, `Too vague`, or `Archived`. Initial priority guesses should use `High potential`, `Medium potential`, `Low potential`, `Unknown`, or `Out of scope`.
 
 ## Contact Register Guidance
 
@@ -321,3 +340,16 @@ When handing off booking state, provide:
 - Recommended next action.
 
 The handoff should be concise enough for the next agent or human to continue without rereading the full file, but it must point back to the relevant state sections and source links.
+
+## Open Questions Guidance
+
+Use `Open Questions` for vague leads or missing source evidence discovered during opportunity discovery, including:
+
+- Missing source links.
+- Unclear venue, city, country, date, edition, promoter, or event relationship.
+- Unclear or unreadable flyer/lineup text.
+- Unresolved duplicate candidates.
+- Uncertain source ownership or source type.
+- Missing artist constraints needed to decide whether the candidate is out of scope.
+
+Keep each question tied to the relevant discovery ID or opportunity ID when possible.

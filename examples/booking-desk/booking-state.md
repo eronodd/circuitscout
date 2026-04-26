@@ -48,9 +48,9 @@
 
 ## Opportunity Pipeline
 
-| Opportunity ID | Name | Type | City | Country | Source links | Status | Priority | Fit score | Fit classification | Score breakdown | Confirmed facts | Assumptions | Unknowns | Red flags | Next action | Contact research next | Owner | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| OPP-001 | Unknown | Unknown | Unknown | Unknown | Unknown | New | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Research official sources | Unknown | Unknown | Unknown |
+| Discovery ID | Opportunity ID | Name | Type | Event / series / organization relationship | City | Country | Date / edition | Source links | Source type | Evidence summary | Extracted lineup / artists | Venue | Promoter / collective | Genre / scene clues | Duplicate check result | Candidate status | Initial priority guess | Status | Priority | Fit score | Fit classification | Score breakdown | Confirmed facts | Assumptions | Unknowns | Red flags | Next action | Contact research next | Recommended next skill | Owner | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| DSC-001 | OPP-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | New candidate | Unknown | New | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Research official sources | Unknown | skills/opportunity-discovery/SKILL.md | Unknown | Unknown |
 
 ## Contact Register
 

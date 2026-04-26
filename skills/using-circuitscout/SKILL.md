@@ -92,6 +92,8 @@ Use this workflow as the default routing map:
 13. Calendar/CRM update.
 14. Retrospective.
 
+Use `skills/opportunity-discovery/SKILL.md` before fit classification to normalize user-provided leads, source lists, flyers, screenshots, lineup text, scene maps, or similar-artist clues into candidate opportunity records. Opportunity discovery is internal and does not require approval when it only extracts, summarizes, deduplicates, identifies unknowns, and recommends the next internal step. It must not score final fit, verify contacts, draft outreach, contact anyone, scrape, browse, automate collection, perform OCR, or write externally. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
+
 Use `skills/fit-classification/SKILL.md` for opportunity qualification before contact verification or outreach drafting. Fit classification is an internal scoring and recommendation step, so it does not require approval by itself. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
 
 Use `skills/contact-verification/SKILL.md` after fit classification and before outreach drafting to verify the safest official contact route. Contact verification is internal and does not require approval by itself. If it recommends any external-facing next action, including email, contact form submission, social DM, Gmail draft creation if connected later, CRM/spreadsheet writes, or contacting a private route, route that action through `skills/approval-before-action/SKILL.md`.
@@ -111,6 +113,7 @@ When handing work to another future skill or agent, include:
 - Relevant booking-state sections to read first.
 - Confirmed facts, assumptions, unknowns, and user-provided preferences.
 - Source links that support the current state.
+- Discovery ID, candidate opportunity ID, source type, evidence summary, extracted lineup/artists, duplicate check result, candidate status, initial priority guess, and recommended next skill when a candidate has been discovered.
 - Fit score, classification, score breakdown, red flags, and unknowns when an opportunity has been classified.
 - Contact route type, confidence, source link, source type, safety notes, and do-not-contact status when a contact has been verified.
 - Draft ID, draft type, intended contact route, subject, personalization evidence, confirmed facts used, missing fields, risk notes, and draft status when outreach has been prepared.
@@ -130,6 +133,8 @@ Before starting a booking workflow, read the current booking state if one exists
 Update state when new confirmed facts, user preferences, assumptions, unknowns, opportunities, contacts, drafts, approvals, outreach events, follow-ups, replies, calendar actions, CRM/spreadsheet actions, risks, decisions, handoffs, open questions, or retrospective notes are created or changed.
 
 When an opportunity is classified, record its fit score, fit classification, score breakdown, confirmed facts, assumptions, unknowns, red flags, source links, recommended next action, and whether contact research should happen next.
+
+When an opportunity candidate is discovered, record its discovery ID, candidate opportunity ID, source type, evidence summary, extracted lineup/artists, duplicate check result, candidate status, initial priority guess, confirmed facts, assumptions, unknowns, risk notes, source links, recommended next skill, and whether fit classification should happen next.
 
 When a contact route is verified, record its contact ID, opportunity ID, route type, route value or description, role/purpose, source link, source type, confidence level, confirmed facts, assumptions, unknowns, duplicate/conflict notes, safety notes, do-not-contact status, last verified date, next action, and whether outreach drafting can happen next.
 
