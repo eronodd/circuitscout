@@ -1,18 +1,31 @@
 #!/bin/bash
 # CircuitScout session-start hook
-# Injects the top-level CircuitScout instructions into every new session
+# Injects the top-level CircuitScout instructions into every new session.
+# The top-level instructions route booking work through skills/using-circuitscout
+# and shared state through skills/booking-state.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 INSTRUCTION_FILE="$PLUGIN_ROOT/CLAUDE.md"
+ROUTER_FILE="$PLUGIN_ROOT/skills/using-circuitscout/SKILL.md"
+STATE_SKILL_FILE="$PLUGIN_ROOT/skills/booking-state/SKILL.md"
 
 if [ ! -f "$INSTRUCTION_FILE" ]; then
   echo "Warning: CircuitScout instructions not found at $INSTRUCTION_FILE" >&2
   exit 0
 fi
 
-INSTRUCTION_CONTENT=$(cat "$INSTRUCTION_FILE" | sed 's/\\/\\\\/g' | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
+if [ ! -f "$ROUTER_FILE" ]; then
+  echo "Warning: CircuitScout router skill not found at $ROUTER_FILE" >&2
+fi
+
+if [ ! -f "$STATE_SKILL_FILE" ]; then
+  echo "Warning: CircuitScout booking-state skill not found at $STATE_SKILL_FILE" >&2
+fi
+
+BOOTSTRAP_NOTE="CircuitScout router: skills/using-circuitscout/SKILL.md\nShared booking state: skills/booking-state/SKILL.md"
+INSTRUCTION_CONTENT=$({ printf "%b\n\n" "$BOOTSTRAP_NOTE"; cat "$INSTRUCTION_FILE"; } | sed 's/\\/\\\\/g' | sed 's/"/\\"/g' | sed ':a;N;$!ba;s/\n/\\n/g')
 
 if [ -n "$CURSOR_SESSION" ]; then
   cat <<EOF

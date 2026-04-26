@@ -30,7 +30,9 @@ Artist profile -> Market/scene research -> Opportunity discovery -> Fit classifi
 
 Skills live in `skills/` and are markdown instruction files. Read relevant `SKILL.md` files before using them, but note that the skills folder is still pending deeper migration from the previous Designpowers system. Do not assume those files are final CircuitScout booking skills yet.
 
-For this migration stage, use the top-level CircuitScout instructions in this file as the source of truth. Preserve the markdown-first workflow model: skill files, visible handoffs, direct mode, auto mode, and shared state.
+For CircuitScout booking work, start with `skills/using-circuitscout/SKILL.md`. Use `skills/booking-state/SKILL.md` whenever a workflow needs to read, initialize, or update shared booking state.
+
+For this migration stage, use the top-level CircuitScout instructions plus the new router and booking-state skills as the source of truth. Preserve the markdown-first workflow model: skill files, visible handoffs, direct mode, auto mode, and shared state.
 
 ## Agents
 
@@ -46,7 +48,7 @@ Default to direct mode for any ambiguous or external-facing step. Auto mode may 
 
 Gemini CLI auto-loads this `GEMINI.md` at session start. The `gemini-extension.json` manifest at the repo root makes this installable as a Gemini CLI extension.
 
-When a workflow later says to invoke a skill, treat that as reading `skills/<skill-name>/SKILL.md` and following it. During the current foundation migration, prefer this top-level CircuitScout identity over any older unmigrated Designpowers language in deeper files.
+When a workflow says to invoke a skill, treat that as reading `skills/<skill-name>/SKILL.md` and following it. During the current foundation migration, prefer the top-level CircuitScout identity, `using-circuitscout`, and `booking-state` over any older unmigrated Designpowers language in deeper files.
 
 ## Migration Note
 

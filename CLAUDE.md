@@ -30,7 +30,9 @@ Artist profile -> Market/scene research -> Opportunity discovery -> Fit classifi
 
 Skills live in `skills/` and are markdown instruction files. The skills folder is still pending deeper migration from the previous Designpowers system, so do not assume those files are final CircuitScout booking skills yet.
 
-For this migration stage, use the top-level CircuitScout instructions in this file as the source of truth. Preserve the markdown-first workflow model: skill files, visible handoffs, direct mode, auto mode, and shared state.
+For CircuitScout booking work, start with `skills/using-circuitscout/SKILL.md`. Use `skills/booking-state/SKILL.md` whenever a workflow needs to read, initialize, or update shared booking state.
+
+For this migration stage, use the top-level CircuitScout instructions plus the new router and booking-state skills as the source of truth. Preserve the markdown-first workflow model: skill files, visible handoffs, direct mode, auto mode, and shared state.
 
 ## Agents
 
