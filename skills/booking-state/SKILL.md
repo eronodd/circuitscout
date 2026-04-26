@@ -101,6 +101,40 @@ Use `examples/booking-desk/booking-state.md` as the canonical template for new p
 - Avoid duplicating the same fact across multiple sections unless the second location links back to the source section or ID.
 - Do not erase consequential context after a decision changes.
 
+## Approval Queue Guidance
+
+Use `skills/approval-before-action/SKILL.md` before creating, approving, rejecting, blocking, or executing approval-gated actions.
+
+`Approval Queue` entries should support:
+
+- Action ID.
+- Proposed action.
+- Target.
+- Reason.
+- Evidence/source.
+- Risk level.
+- Status.
+- Created date.
+- Required human decision.
+- Approved/rejected date.
+- Notes.
+
+Use statuses such as `Needs approval`, `Approved`, `Rejected`, `Needs clarification`, `Expired`, or `Blocked`. Approval must be explicit and action-specific. If approval is unclear, do not execute the action.
+
+## Decision Log Guidance
+
+`Decision Log` entries should record:
+
+- Decision ID.
+- Related action ID.
+- Decision.
+- Human approver.
+- Timestamp/date.
+- Rationale.
+- Resulting state change.
+
+Log approvals before or alongside the approved action. Log rejections, blocked actions, and consequential status changes even when no external action occurs.
+
 ## Handoff Format
 
 When handing off booking state, provide:

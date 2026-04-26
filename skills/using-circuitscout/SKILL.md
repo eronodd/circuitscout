@@ -48,20 +48,30 @@ Auto Mode does not authorize external actions.
 
 ## Human Approval Gates
 
+Use `skills/approval-before-action/SKILL.md` before any workflow step reaches an external-facing or consequential action. That skill is the source of truth for approval request format, risk levels, logging behavior, ambiguity handling, and blocked actions.
+
 Require explicit human approval before:
 
 - Sending emails.
 - Creating Gmail drafts if connected later.
 - Replying to emails.
+- Forwarding emails.
+- Contacting promoters, venues, festivals, clubs, collectives, radio shows, agencies, or artists.
 - Accepting bookings.
-- Negotiating fees.
+- Declining bookings.
+- Negotiating fees, travel, hospitality, set time, billing, exclusivity, radius clauses, or contract terms.
 - Confirming availability.
-- Committing calendar dates.
+- Placing, confirming, modifying, or committing calendar dates.
+- Creating, updating, or deleting calendar events if connected later.
 - Adding or removing do-not-contact entries.
 - Contacting private or personal emails.
 - Making external changes in a CRM/spreadsheet if connected later.
+- Marking an opportunity as `Booked`, `Rejected`, `Do Not Contact`, or `Closed`.
+- Making any irreversible external change.
 
 Approval must be specific to the action. Broad permission such as "handle outreach" is not enough to send, reply, negotiate, confirm, or update external systems.
+
+If the user says something ambiguous such as "handle it", "take care of it", or "go ahead", clarify the exact external or consequential action before executing. Approval must never be invented or generalized from prior context.
 
 ## Core Workflow
 
@@ -73,7 +83,7 @@ Use this workflow as the default routing map:
 4. Fit classification.
 5. Contact verification.
 6. Outreach draft.
-7. Human approval.
+7. Approval-before-action gate.
 8. Send/log manually or via approved draft.
 9. Inbox triage.
 10. Follow-up queue.
@@ -106,6 +116,8 @@ Update state when new confirmed facts, user preferences, assumptions, unknowns, 
 
 Outreach, approval, decision, and handoff records are append-only audit trails. Add new rows or notes rather than rewriting history, except for obvious typo fixes that do not alter meaning.
 
+When an approval-gated action is proposed, approved, rejected, unclear, expired, or blocked, update `Approval Queue` and `Decision Log` according to `skills/approval-before-action/SKILL.md`.
+
 ## Safety Boundaries
 
 - Never invent contacts, capacities, lineups, fees, audience sizes, artist credentials, or source evidence.
@@ -116,6 +128,7 @@ Outreach, approval, decision, and handoff records are append-only audit trails. 
 - Treat private or personal emails as sensitive and require explicit approval before contact.
 - Do not scrape behind logins, bypass access controls, or imply endorsement from unsourced data.
 - Do not send or prepare external actions unless the requested action is within scope and approval requirements are met.
+- Keep "prepare" separate from "execute": preparing drafts, proposed holds, proposed CRM rows, or recommendations does not authorize sending, creating, writing, or contacting.
 - Log all consequential decisions.
 
 ## Pending Migration Note

@@ -66,9 +66,9 @@
 
 ## Approval Queue
 
-| Action ID | Proposed action | Target | Reason | Risk level | Required human decision | Status | Created date | Approved/rejected date |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| ACT-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Not requested | Unknown | Unknown |
+| Action ID | Proposed action | Target | Reason | Evidence/source | Risk level | Status | Created date | Required human decision | Approved/rejected date | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ACT-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Not requested | Unknown | Unknown | Unknown | Unknown |
 
 ## Outreach Log
 
@@ -102,7 +102,7 @@
 
 ## Decision Log
 
-| Decision ID | Date | Decision | Decided by | Rationale | Source/context | Consequences | Notes |
+| Decision ID | Related action ID | Decision | Human approver | Timestamp/date | Rationale | Resulting state change | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | DEC-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown |
 
