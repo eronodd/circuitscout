@@ -74,7 +74,7 @@ Draft Outbox tracks prepared internal draft text and review state. It is not the
 
 ## Outreach Log
 
-Outreach Log records sent or externally executed outreach only. Prepared drafts belong in Draft Outbox until a human-approved external action occurs.
+Outreach Log records sent or externally executed outreach only. Prepared drafts and planned follow-ups belong in Draft Outbox / Follow-up Queue until a human-approved external action occurs.
 
 | Outreach ID | Opportunity ID | Contact ID | Channel | Subject | Draft/source | Sent status | Sent date | Approved by human | Follow-up due date | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -82,9 +82,11 @@ Outreach Log records sent or externally executed outreach only. Prepared drafts 
 
 ## Follow-up Queue
 
-| Follow-up ID | Outreach ID | Opportunity ID | Contact ID | Due date | Proposed follow-up | Status | Approval needed | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| FUP-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Not scheduled | Yes | Unknown |
+Follow-up Queue records planned internal follow-up state. Prepared follow-up drafts must not be marked as sent unless the human confirms sending or a future approved connector completes the external action.
+
+| Follow-up ID | Opportunity ID | Contact ID | Related outreach ID | Related draft ID | Follow-up type | Status | Last outreach date | Follow-up count | Recommended send window | Due date | Timing rationale | Draft status | Approval action ID | Sent status | Sent date | Stop reason | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| FUP-001 | Unknown | Unknown | Unknown | Unknown | Unknown | Not ready | Unknown | 0 | Unknown | Unknown | Unknown | Not started | Unknown | Not sent | Unknown | Unknown | Unknown |
 
 ## Inbox / Reply Status
 

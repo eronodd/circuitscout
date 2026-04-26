@@ -189,7 +189,7 @@ If a draft recommends sending, replying, forwarding, creating a Gmail draft if c
 
 ## Outreach Log Guidance
 
-`Outreach Log` records sent or externally executed outreach only. Prepared drafts must not be copied into Outreach Log or marked as sent before external action occurs.
+`Outreach Log` records sent or externally executed outreach only. Prepared drafts and planned follow-ups must not be copied into Outreach Log or marked as sent before external action occurs. Use `Follow-up Queue` for planned internal follow-up state.
 
 `Outreach Log` entries should support:
 
@@ -204,6 +204,39 @@ If a draft recommends sending, replying, forwarding, creating a Gmail draft if c
 - Approved by human.
 - Follow-up due date.
 - Notes.
+
+## Follow-up Queue Guidance
+
+Use `skills/followup-planning/SKILL.md` after reviewing `Outreach Log` and `Inbox / Reply Status`, and before approval-before-action for any external follow-up action.
+
+`Follow-up Queue` records planned internal follow-up state. It is not the `Outreach Log`; prepared follow-up drafts must not be marked as sent unless the human confirms they were sent manually or a future approved connector completes the send.
+
+`Follow-up Queue` entries should support:
+
+- Follow-up ID.
+- Opportunity ID.
+- Contact ID.
+- Related outreach ID.
+- Related draft ID.
+- Follow-up type.
+- Status.
+- Last outreach date.
+- Follow-up count.
+- Recommended send window.
+- Due date.
+- Timing rationale.
+- Draft status.
+- Approval action ID.
+- Sent status.
+- Sent date.
+- Stop reason.
+- Notes.
+
+Use statuses such as `Not ready`, `Planned`, `Due`, `Pending review`, `Needs approval`, `Approved for external action`, `Sent`, `Paused`, `Stopped`, or `Cancelled`.
+
+Follow-up planning may proceed only when there is a real prior outreach event in `Outreach Log` or the user explicitly says they sent the outreach manually, the contact route is still `Verified` or `Likely`, no do-not-contact conflict exists, the opportunity status does not block follow-up, reply status does not make follow-up inappropriate, and cadence limits have not been exceeded.
+
+If follow-up planning recommends sending, replying, forwarding, creating a Gmail draft if connected later, using a contact form, sending a social DM, creating a calendar reminder, scheduling anything, or writing externally, route the proposed action through `skills/approval-before-action/SKILL.md`. Store the resulting approval action ID only after the approval request exists.
 
 ## Approval Queue Guidance
 

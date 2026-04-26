@@ -85,16 +85,19 @@ Use this workflow as the default routing map:
 6. Outreach draft.
 7. Approval-before-action gate.
 8. Send/log manually or via approved draft.
-9. Inbox triage.
-10. Follow-up queue.
-11. Calendar/CRM update.
-12. Retrospective.
+9. Outreach Log / Inbox Reply Status review.
+10. Follow-up planning.
+11. Approval-before-action gate for any external follow-up action.
+12. Calendar/CRM update.
+13. Retrospective.
 
 Use `skills/fit-classification/SKILL.md` for opportunity qualification before contact verification or outreach drafting. Fit classification is an internal scoring and recommendation step, so it does not require approval by itself. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
 
 Use `skills/contact-verification/SKILL.md` after fit classification and before outreach drafting to verify the safest official contact route. Contact verification is internal and does not require approval by itself. If it recommends any external-facing next action, including email, contact form submission, social DM, Gmail draft creation if connected later, CRM/spreadsheet writes, or contacting a private route, route that action through `skills/approval-before-action/SKILL.md`.
 
 Use `skills/outreach-drafting/SKILL.md` after contact verification and before approval-before-action to prepare source-backed booking outreach, follow-ups, or reply drafts for human review. Outreach drafting is internal and does not require approval when it only creates draft text or updates local pending draft records. It may proceed only when the opportunity is classified `A`, `B`, or explicitly approved `C`/`Monitor`, the contact route confidence is `Verified` or `Likely`, no do-not-contact conflict exists, required artist facts/assets are present or clearly marked as missing, and no serious red flags block outreach. Any recommended external action, including sending, replying, forwarding, creating a Gmail draft if connected later, submitting a form, sending a DM, or writing externally, must route through `skills/approval-before-action/SKILL.md`.
+
+Use `skills/followup-planning/SKILL.md` after reviewing `Outreach Log` and `Inbox / Reply Status`, and before approval-before-action for any external follow-up action. Follow-up planning is internal and does not require approval when it only checks cadence, evaluates reply/contact/opportunity status, prepares a local follow-up plan or draft, or updates local `Follow-up Queue` records. It may prepare follow-up text only when there is a real prior outreach event in `Outreach Log` or the user explicitly says they sent the outreach manually, the contact route remains `Verified` or `Likely`, no do-not-contact conflict exists, the opportunity is not `Booked`, `Closed`, `Rejected`, `Do Not Contact`, or `Blocked`, no reply makes follow-up inappropriate, and the follow-up count is within the allowed cadence. Any recommended external action, including sending, replying, forwarding, creating a Gmail draft if connected later, using a contact form, sending a DM, creating a calendar reminder, scheduling anything, or writing externally, must route through `skills/approval-before-action/SKILL.md`.
 
 ## Handoff Rules
 
@@ -108,6 +111,7 @@ When handing work to another future skill or agent, include:
 - Fit score, classification, score breakdown, red flags, and unknowns when an opportunity has been classified.
 - Contact route type, confidence, source link, source type, safety notes, and do-not-contact status when a contact has been verified.
 - Draft ID, draft type, intended contact route, subject, personalization evidence, confirmed facts used, missing fields, risk notes, and draft status when outreach has been prepared.
+- Follow-up ID, related outreach ID, follow-up type, last outreach date, follow-up count, recommended send window, timing rationale, reply status, blockers checked, and approval action ID when a follow-up has been planned.
 - Approval gates that may apply next.
 - Exact next action requested.
 
@@ -126,6 +130,8 @@ When an opportunity is classified, record its fit score, fit classification, sco
 When a contact route is verified, record its contact ID, opportunity ID, route type, route value or description, role/purpose, source link, source type, confidence level, confirmed facts, assumptions, unknowns, duplicate/conflict notes, safety notes, do-not-contact status, last verified date, next action, and whether outreach drafting can happen next.
 
 When an outreach draft is prepared, record its draft ID, opportunity ID, contact ID, draft type, intended recipient/contact route, subject, draft status, created date, source evidence, confirmed facts used, missing fields, risk notes, approval action ID if created later, sent status, sent date, follow-up due date, and notes. Prepared drafts belong in `Draft Outbox` and must not be treated as sent outreach.
+
+When a follow-up is planned, record its follow-up ID, opportunity ID, contact ID, related outreach ID, related draft ID if any, follow-up type, status, last outreach date, follow-up count, recommended send window, due date, timing rationale, draft status, approval action ID if created later, sent status, sent date, stop reason if any, and notes. Planned follow-ups belong in `Follow-up Queue`; prepared follow-up drafts must not be treated as sent outreach.
 
 Outreach, approval, decision, and handoff records are append-only audit trails. Add new rows or notes rather than rewriting history, except for obvious typo fixes that do not alter meaning.
 
