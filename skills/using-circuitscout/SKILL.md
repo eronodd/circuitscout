@@ -96,6 +96,8 @@ Use this workflow as the default routing map:
 
 CircuitScout agents are role wrappers. Skills remain the procedural source of truth. Use agents to clarify ownership, boundaries, and handoff behavior; use the skills below for the actual workflow rules.
 
+Use `agents/README.md` as the CircuitScout agent index. CircuitScout booking workflows should prefer the CircuitScout-native MVP agents in that index before considering any legacy agent surface.
+
 Current CircuitScout-native MVP agents:
 
 - `agents/booking-strategist.md` for booking goals, target markets, routing logic, priorities, constraints, and strategic direction.
@@ -115,6 +117,8 @@ Default agent routing:
 6. `booking-guardian` may review any stage before an external-facing or consequential action.
 
 Do not treat agent handoff as approval. Approval must still follow `skills/approval-before-action/SKILL.md`.
+
+Legacy Designpowers agents may remain in `agents/` during migration. They are compatibility surfaces only for this phase and are not the default agents for CircuitScout booking workflow decisions unless a future migration slice explicitly adapts them.
 
 Use `skills/opportunity-discovery/SKILL.md` before fit classification to normalize user-provided leads, source lists, flyers, screenshots, lineup text, scene maps, or similar-artist clues into candidate opportunity records. Opportunity discovery is internal and does not require approval when it only extracts, summarizes, deduplicates, identifies unknowns, and recommends the next internal step. It must not score final fit, verify contacts, draft outreach, contact anyone, scrape, browse, automate collection, perform OCR, or write externally. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
 

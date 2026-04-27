@@ -77,7 +77,8 @@ CircuitScout keeps the existing markdown-first architecture:
 - `CLAUDE.md` and `GEMINI.md` provide top-level activation instructions.
 - `.claude-plugin/` and `gemini-extension.json` provide package and extension metadata.
 - `hooks/session-start` injects the top-level CircuitScout instructions into new Claude sessions.
-- `agents/` will hold specialist roles for research, qualification, contact verification, outreach drafting, inbox triage, tracking, and retrospectives.
+- `agents/README.md` is the CircuitScout agent index for Codex/OpenAI-first routing.
+- `agents/` holds specialist role wrappers for research, qualification, contact verification, outreach drafting, safety review, and future booking stages.
 - `skills/` will hold workflow instructions that agents and models can read directly.
 - Handoffs keep work visible and reviewable between stages.
 - Direct mode pauses for human approval at each handoff.
@@ -94,6 +95,8 @@ The first CircuitScout-native MVP agents now live in `agents/`:
 - `booking-guardian`
 
 These agents are role wrappers. The procedural source of truth remains the CircuitScout skills, especially `skills/using-circuitscout/SKILL.md`, `skills/booking-state/SKILL.md`, and the stage-specific workflow skills.
+
+Legacy Designpowers agents may remain in `agents/` during migration, but they are not the default agents for CircuitScout booking workflows.
 
 ## Current Migration Status
 
