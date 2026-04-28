@@ -7,8 +7,8 @@ CircuitScout agents are role wrappers for ownership, boundaries, and handoffs. S
 ### `booking-strategist`
 
 - Purpose: Defines booking goals, target markets, routing logic, opportunity priorities, artist constraints, strategic assumptions, and downstream workflow direction.
-- Primary skills used: `skills/booking-state/SKILL.md`, `skills/opportunity-discovery/SKILL.md`, `skills/fit-classification/SKILL.md`, `skills/approval-before-action/SKILL.md` when a recommendation becomes external-facing or consequential.
-- Main booking-state sections touched: `Artist Profile`, `Positioning / Sound / Scene Fit`, `Target Markets`, `Booking Goals`, `Opportunity Pipeline`, `Decision Log`, `Risk Register`, `Open Questions`, `Handoff Chain`.
+- Primary skills used: `skills/artist-profile/SKILL.md`, `skills/booking-state/SKILL.md`, `skills/opportunity-discovery/SKILL.md`, `skills/fit-classification/SKILL.md`, `skills/approval-before-action/SKILL.md` when a recommendation becomes external-facing or consequential.
+- Main booking-state sections touched: `Artist Profile`, `Positioning / Sound / Scene Fit`, `EPK Assets`, `Proof / Credibility`, `Target Markets`, `Anti-targets`, `Booking Goals`, `Booking Constraints`, `Outreach Voice`, `Missing / Blocked Fields`, `Opportunity Pipeline`, `Decision Log`, `Risk Register`, `Open Questions`, `Handoff Chain`.
 - Default next handoff: `opportunity-scout` for lead discovery or `fit-classifier` for existing opportunities that are ready to score.
 - Approval boundary: Strategy work is internal, but any relationship, booking status, calendar, contact, or external-system consequence must route through `booking-guardian` / `approval-before-action`.
 
@@ -39,8 +39,8 @@ CircuitScout agents are role wrappers for ownership, boundaries, and handoffs. S
 ### `outreach-drafter`
 
 - Purpose: Prepares personalized, source-backed outreach, reply, and follow-up draft text for human review while keeping prepared drafts separate from sent outreach.
-- Primary skills used: `skills/outreach-drafting/SKILL.md`, `skills/followup-planning/SKILL.md`, `skills/inbox-triage/SKILL.md` when replying to inbound messages, `skills/booking-state/SKILL.md`, `skills/approval-before-action/SKILL.md` for any external next action.
-- Main booking-state sections touched: `Artist Profile`, `EPK Assets`, `Opportunity Pipeline`, `Contact Register`, `Draft Outbox`, `Outreach Log`, `Follow-up Queue`, `Inbox / Reply Status`, `Approval Queue`, `Handoff Chain`.
+- Primary skills used: `skills/artist-profile/SKILL.md` when artist facts, EPK assets, safe claims, or outreach voice are missing, `skills/outreach-drafting/SKILL.md`, `skills/followup-planning/SKILL.md`, `skills/inbox-triage/SKILL.md` when replying to inbound messages, `skills/booking-state/SKILL.md`, `skills/approval-before-action/SKILL.md` for any external next action.
+- Main booking-state sections touched: `Artist Profile`, `Positioning / Sound / Scene Fit`, `EPK Assets`, `Proof / Credibility`, `Outreach Voice`, `Missing / Blocked Fields`, `Opportunity Pipeline`, `Contact Register`, `Draft Outbox`, `Outreach Log`, `Follow-up Queue`, `Inbox / Reply Status`, `Approval Queue`, `Handoff Chain`.
 - Default next handoff: `booking-guardian` / `approval-before-action` when the user wants to send, reply, forward, schedule, create an external draft, or write externally.
 - Approval boundary: Local draft preparation is internal. Sending, replying, forwarding, creating Gmail drafts, submitting forms, sending DMs, scheduling, and external writes require explicit action-specific approval.
 
@@ -53,6 +53,18 @@ CircuitScout agents are role wrappers for ownership, boundaries, and handoffs. S
 - Approval boundary: Owns the approval boundary but cannot approve on the human's behalf. External-facing or consequential actions stay blocked until explicit action-specific approval names the action, target, and relevant draft or state change.
 
 ## Default Routing Chain
+
+```text
+artist-profile if artist context is missing or incomplete
+-> booking-strategist
+-> opportunity-scout
+-> fit-classifier
+-> contact-verifier
+-> outreach-drafter
+-> booking-guardian / approval-before-action
+```
+
+When artist context is already complete enough for the requested stage, the chain may start at:
 
 ```text
 booking-strategist

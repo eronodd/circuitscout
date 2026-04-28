@@ -14,6 +14,7 @@ It records the artist profile, booking goals, opportunities, contacts, drafts, a
 Read `booking-state.md` before:
 
 - Starting or resuming a CircuitScout workflow.
+- Building, auditing, or updating an artist profile.
 - Researching opportunities, contacts, markets, or scenes for an active artist/project.
 - Discovering, normalizing, deduplicating, or preparing candidate opportunity records.
 - Drafting outreach, replies, follow-ups, approvals, calendar actions, or CRM/spreadsheet actions.
@@ -73,8 +74,13 @@ Every `booking-state.md` file must include:
 - `Artist Profile`
 - `Positioning / Sound / Scene Fit`
 - `EPK Assets`
+- `Proof / Credibility`
 - `Target Markets`
+- `Anti-targets`
 - `Booking Goals`
+- `Booking Constraints`
+- `Outreach Voice`
+- `Missing / Blocked Fields`
 - `Opportunity Pipeline`
 - `Contact Register`
 - `Draft Outbox`
@@ -92,6 +98,102 @@ Every `booking-state.md` file must include:
 - `Retrospective Notes`
 
 Use `examples/booking-desk/booking-state.md` as the canonical template for new projects.
+
+## Artist Profile Guidance
+
+Use `skills/artist-profile/SKILL.md` before downstream discovery, fit classification, contact verification, or outreach drafting when artist context is missing, incomplete, outdated, contradictory, or not separated into confirmed facts, assumptions, unknowns, sensitive/private fields, and missing assets.
+
+`Artist Profile` entries should support:
+
+- Artist profile ID.
+- Profile status.
+- Last updated date.
+- Artist/project name.
+- Legal/admin name only if user-provided and needed.
+- Location/base.
+- Project type.
+- Short bio.
+- Long bio.
+- Languages.
+- Contact/admin owner if relevant.
+- Confirmed facts.
+- Sources.
+- Assumptions.
+- Unknowns.
+- Outdated fields.
+- Claims needing verification.
+- Sensitive/private fields.
+- Recommended next internal step.
+
+Use profile status values from artist-profile: `Empty`, `Draft`, `Usable for discovery`, `Usable for fit classification`, `Usable for outreach drafting`, `Missing critical outreach assets`, `Needs human review`, `Outdated`, or `Blocked`.
+
+Do not store private/legal/admin details in external-facing summaries unless relevant and explicitly approved by the user. If a profile update affects a consequential booking decision, add a `Decision Log` entry.
+
+Profile proof and credibility notes should capture confirmed releases, labels, past bookings, support slots, radio/mix features, press, awards/grants, and audience/social proof only when user-provided or source-backed. Keep claims needing verification separate from claims safe to use.
+
+## Positioning / Sound / Scene Fit Guidance
+
+This section should support:
+
+- Primary genres.
+- Secondary genres.
+- BPM/energy range if relevant.
+- Sonic references.
+- Similar artists.
+- Labels/scenes associated with the sound.
+- Underground/commercial positioning.
+- Experimental/accessibility balance.
+- Live/DJ format.
+- Ideal contexts.
+- One-line positioning statement.
+- What makes the artist specific.
+- Emotional/scene identity.
+- Aesthetic language.
+- Audience context.
+- Claims safe to use.
+- Claims not safe to use.
+- Words/claims to avoid.
+
+Separate confirmed sound evidence from interpretive fit notes. Do not treat aspirational positioning, similar-artist references, or aesthetic language as confirmed proof.
+
+## EPK Assets Guidance
+
+Use `skills/artist-profile/SKILL.md` to maintain EPK readiness.
+
+`EPK Assets` entries should support:
+
+- Asset ID.
+- Asset type.
+- Link/path.
+- Status.
+- Source.
+- Last reviewed date.
+- Public-safe? yes/no.
+- Needed for discovery, fit classification, outreach drafting, or negotiation.
+- Notes.
+
+Track official website, EPK link, press kit folder, bio links, press photos, logo, live/DJ videos, mixes, releases, music/social links, tech rider, hospitality rider, stage plot if relevant, and booking/admin contact if user-provided.
+
+Use asset status values: `confirmed`, `missing`, `outdated`, or `needs review`. If outreach would require a missing asset, route back to `skills/artist-profile/SKILL.md` before drafting.
+
+## Target Markets And Booking Goals Guidance
+
+Target markets and booking goals should preserve user-provided preferences and constraints:
+
+- Target cities/countries.
+- Target scenes.
+- Target venues/festivals/promoters.
+- Anti-targets.
+- Preferred event types.
+- Minimum expectations if user provides them.
+- Fee range only if user provides it.
+- Travel constraints.
+- Availability constraints.
+- Radius/exclusivity constraints if relevant and user-provided.
+- Do-not-contact preferences.
+- Recommended next internal step.
+
+If fees, availability, travel, legal terms, radius, or exclusivity constraints are missing and needed for a decision, mark the decision as `needs human input` rather than assuming.
 
 ## State Hygiene Rules
 
@@ -343,8 +445,10 @@ The handoff should be concise enough for the next agent or human to continue wit
 
 ## Open Questions Guidance
 
-Use `Open Questions` for vague leads or missing source evidence discovered during opportunity discovery, including:
+Use `Open Questions` for missing artist-profile fields, vague leads, or missing source evidence discovered during opportunity discovery, including:
 
+- Missing artist identity, sound, positioning, EPK, target-market, booking-goal, constraint, outreach-voice, safe-claim, or private-detail approval questions.
+- Fields required for discovery, fit classification, outreach drafting, or serious booking negotiation.
 - Missing source links.
 - Unclear venue, city, country, date, edition, promoter, or event relationship.
 - Unclear or unreadable flyer/lineup text.
@@ -353,3 +457,21 @@ Use `Open Questions` for vague leads or missing source evidence discovered durin
 - Missing artist constraints needed to decide whether the candidate is out of scope.
 
 Keep each question tied to the relevant discovery ID or opportunity ID when possible.
+
+For artist-profile questions, tie each question to the artist profile ID when possible.
+
+## Risk Register Guidance
+
+Use `Risk Register` for profile and booking-workflow risks, including:
+
+- Unsupported artist claims that might be used externally.
+- Outdated EPK assets.
+- Missing critical outreach assets.
+- Sensitive/private details that could be exposed accidentally.
+- Missing fee, availability, travel, legal, radius, or exclusivity inputs needed for a booking decision.
+- Contradictory artist facts.
+- Do-not-contact preferences.
+- Overclaiming, unsupported hype, or aspirational positioning being mistaken for proof.
+- Unsafe, suspicious, exploitative, spammy, fake, or pay-to-play opportunity signals.
+
+Risks that would affect external-facing action should route the proposed action through `skills/approval-before-action/SKILL.md`.

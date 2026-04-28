@@ -109,16 +109,19 @@ Current CircuitScout-native MVP agents:
 
 Default agent routing:
 
-1. `booking-strategist` may hand off to `opportunity-scout` or `fit-classifier`.
-2. `opportunity-scout` hands candidate opportunities to `fit-classifier`.
-3. `fit-classifier` sends qualified opportunities to `contact-verifier`.
-4. `contact-verifier` sends `Verified` or `Likely` contact routes to `outreach-drafter`.
-5. `outreach-drafter` prepares local drafts and routes external next actions to `booking-guardian` / `approval-before-action`.
-6. `booking-guardian` may review any stage before an external-facing or consequential action.
+1. `booking-strategist` checks whether `skills/artist-profile/SKILL.md` is needed before downstream work.
+2. `booking-strategist` may hand off to `opportunity-scout` or `fit-classifier`.
+3. `opportunity-scout` hands candidate opportunities to `fit-classifier`.
+4. `fit-classifier` sends qualified opportunities to `contact-verifier`.
+5. `contact-verifier` sends `Verified` or `Likely` contact routes to `outreach-drafter`.
+6. `outreach-drafter` prepares local drafts and routes external next actions to `booking-guardian` / `approval-before-action`.
+7. `booking-guardian` may review any stage before an external-facing or consequential action.
 
 Do not treat agent handoff as approval. Approval must still follow `skills/approval-before-action/SKILL.md`.
 
 Legacy Designpowers agents may remain in `agents/` during migration. They are compatibility surfaces only for this phase and are not the default agents for CircuitScout booking workflow decisions unless a future migration slice explicitly adapts them.
+
+Use `skills/artist-profile/SKILL.md` before opportunity discovery, fit classification, contact verification, or outreach drafting when artist context is missing, incomplete, outdated, contradictory, or not separated into confirmed facts, assumptions, unknowns, sensitive/private fields, and missing assets. Artist-profile work is internal and does not require approval when it only reads user-provided/local state, structures profile data, marks missing fields, and recommends next internal steps. If profile work would expose private/legal/admin details externally, use booking constraints in negotiation, or change external systems, route that action through `skills/approval-before-action/SKILL.md`.
 
 Use `skills/opportunity-discovery/SKILL.md` before fit classification to normalize user-provided leads, source lists, flyers, screenshots, lineup text, scene maps, or similar-artist clues into candidate opportunity records. Opportunity discovery is internal and does not require approval when it only extracts, summarizes, deduplicates, identifies unknowns, and recommends the next internal step. It must not score final fit, verify contacts, draft outreach, contact anyone, scrape, browse, automate collection, perform OCR, or write externally. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
 
@@ -127,6 +130,8 @@ Use `skills/fit-classification/SKILL.md` for opportunity qualification before co
 Use `skills/contact-verification/SKILL.md` after fit classification and before outreach drafting to verify the safest official contact route. Contact verification is internal and does not require approval by itself. If it recommends any external-facing next action, including email, contact form submission, social DM, Gmail draft creation if connected later, CRM/spreadsheet writes, or contacting a private route, route that action through `skills/approval-before-action/SKILL.md`.
 
 Use `skills/outreach-drafting/SKILL.md` after contact verification and before approval-before-action to prepare source-backed booking outreach, follow-ups, or reply drafts for human review. Outreach drafting is internal and does not require approval when it only creates draft text or updates local pending draft records. It may proceed only when the opportunity is classified `A`, `B`, or explicitly approved `C`/`Monitor`, the contact route confidence is `Verified` or `Likely`, no do-not-contact conflict exists, required artist facts/assets are present or clearly marked as missing, and no serious red flags block outreach. Any recommended external action, including sending, replying, forwarding, creating a Gmail draft if connected later, submitting a form, sending a DM, or writing externally, must route through `skills/approval-before-action/SKILL.md`.
+
+If outreach drafting discovers that the artist profile lacks a confirmed EPK link, music/mix/release asset, safe positioning statement, claims safe to use, claims not safe to use, or required booking constraints for the requested draft, route back to `skills/artist-profile/SKILL.md` before drafting.
 
 Use `skills/inbox-triage/SKILL.md` when the user provides an inbound booking-related message, excerpt, or summary, or when a future approved connector provides a message summary. Inbox triage happens before follow-up planning whenever a reply exists. It is internal and does not require approval when it only classifies the reply, extracts confirmed facts, identifies risks, recommends local state updates, and chooses the next internal step. Any recommended external or consequential action, including replying, forwarding, creating a Gmail draft if connected later, contacting a redirect, changing do-not-contact externally, confirming dates, accepting or declining bookings, negotiating terms, or writing externally, must route through `skills/approval-before-action/SKILL.md`.
 
@@ -138,6 +143,7 @@ When handing work to another future skill or agent, include:
 
 - Current workflow stage.
 - Artist/project context.
+- Artist profile ID, profile status, source hygiene notes, missing fields, safe claims, unsafe claims, EPK asset status, and outreach voice notes when relevant.
 - Relevant booking-state sections to read first.
 - Confirmed facts, assumptions, unknowns, and user-provided preferences.
 - Source links that support the current state.
@@ -160,6 +166,8 @@ Before starting a booking workflow, read the current booking state if one exists
 
 Update state when new confirmed facts, user preferences, assumptions, unknowns, opportunities, contacts, drafts, approvals, outreach events, follow-ups, replies, calendar actions, CRM/spreadsheet actions, risks, decisions, handoffs, open questions, or retrospective notes are created or changed.
 
+When an artist profile is created or updated, record its profile ID, status, confirmed facts, assumptions, unknowns, missing assets, source notes, sensitive/private fields, positioning summary, sound/scene summary, target markets, anti-targets, booking constraints, outreach voice notes, claims safe to use, claims not safe to use, recommended next internal step, and any workflow blocked by missing fields.
+
 When an opportunity is classified, record its fit score, fit classification, score breakdown, confirmed facts, assumptions, unknowns, red flags, source links, recommended next action, and whether contact research should happen next.
 
 When an opportunity candidate is discovered, record its discovery ID, candidate opportunity ID, source type, evidence summary, extracted lineup/artists, duplicate check result, candidate status, initial priority guess, confirmed facts, assumptions, unknowns, risk notes, source links, recommended next skill, and whether fit classification should happen next.
@@ -179,6 +187,7 @@ When an approval-gated action is proposed, approved, rejected, unclear, expired,
 ## Safety Boundaries
 
 - Never invent contacts, capacities, lineups, fees, audience sizes, artist credentials, or source evidence.
+- Never invent artist links, releases, labels, press, metrics, affiliations, booking history, support history, availability, or EPK assets.
 - Always distinguish confirmed facts from assumptions.
 - Preserve source links.
 - Mark unknowns as unknown.
