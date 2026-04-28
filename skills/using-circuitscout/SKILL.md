@@ -25,6 +25,29 @@ Activate CircuitScout when the user asks for help with booking-desk work for an 
 
 If a request is partly booking-related and partly general, activate CircuitScout for the booking-related portion and keep unrelated work outside this workflow.
 
+## First-Use Routing
+
+When a user starts a new CircuitScout project or provides a compact artist profile intake, use this order before discovery:
+
+1. Capture first-use artist details with `examples/booking-desk/artist-profile-intake.md` when no usable artist profile exists.
+2. Transfer completed intake with `examples/booking-desk/intake-to-booking-state-transfer.md` before treating it as canonical booking state.
+3. Use `skills/booking-state/SKILL.md` to read or update `booking-state.md` as the source of truth after transfer.
+4. Route to `skills/opportunity-discovery/SKILL.md` only when the profile is at least usable for discovery.
+5. Route back to `skills/artist-profile/SKILL.md` when intake is incomplete, source hygiene is unclear, or missing outreach-critical assets need to be recorded.
+
+Use compact intake for first-use capture, quick artist onboarding, or user-provided profile notes that are not yet booking-state. Transfer to booking-state once the intake has an artist/project identity and enough labeled facts, assumptions, unknowns, missing assets, sensitive/private fields, and claims needing verification to preserve source hygiene.
+
+Minimum readiness before opportunity discovery:
+
+- Artist/project name is known.
+- Project type is known or marked `Unknown`.
+- Basic sound/scene context exists.
+- Target market or discovery scope exists, or the user explicitly asks for broad discovery.
+- Source hygiene labels exist for important claims.
+- Missing outreach-critical assets are recorded as missing rather than invented.
+
+Stop and route back to `skills/artist-profile/SKILL.md` when there is no artist/project name, no sound/scene context, unclear source hygiene, a request for outreach before EPK/safe claims/contact readiness exists, or a request to use unverifiable claims externally.
+
 ## Operating Modes
 
 ### Direct Mode
