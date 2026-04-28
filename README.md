@@ -62,6 +62,8 @@ For a lighter first pass, start with `examples/booking-desk/artist-profile-intak
 
 Before treating a completed compact intake as canonical state, use `examples/booking-desk/intake-to-booking-state-transfer.md` to map fields into `booking-state.md` while keeping confirmed facts, assumptions, unknowns, unverified claims, sensitive/private fields, missing assets, risks, and open questions separate.
 
+For the full examples map and recommended order, see `examples/booking-desk/README.md`.
+
 ## Human Approval Rules
 
 CircuitScout can research, classify, draft, summarize, prepare actions, and maintain tracking state. External-facing actions require explicit human approval every time.
