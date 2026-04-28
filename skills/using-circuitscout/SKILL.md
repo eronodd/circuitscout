@@ -48,7 +48,7 @@ Minimum readiness before opportunity discovery:
 
 Stop and route back to `skills/artist-profile/SKILL.md` when there is no artist/project name, no sound/scene context, unclear source hygiene, a request for outreach before EPK/safe claims/contact readiness exists, or a request to use unverifiable claims externally.
 
-`skills/opportunity-discovery/SKILL.md` also has its own readiness guard. It may still allow narrow manual lead intake with limitations, but it must not advance to full fit classification or outreach readiness until artist-profile and booking-state context are usable.
+`skills/opportunity-discovery/SKILL.md` also has its own readiness guard. It may still allow narrow manual lead intake with limitations, but it must not advance to full fit classification or outreach readiness until artist-profile and booking-state context are usable. `skills/fit-classification/SKILL.md` has a separate readiness guard that can produce conservative limited pre-fit review for manual leads, but must not produce the official score/classification until artist context, opportunity evidence, source hygiene, and booking-state normalization are sufficient.
 
 ## Operating Modes
 
@@ -150,7 +150,7 @@ Use `skills/artist-profile/SKILL.md` before opportunity discovery, fit classific
 
 Use `skills/opportunity-discovery/SKILL.md` before fit classification to normalize user-provided leads, source lists, flyers, screenshots, lineup text, scene maps, or similar-artist clues into candidate opportunity records. Opportunity discovery is internal and does not require approval when it only extracts, summarizes, deduplicates, identifies unknowns, and recommends the next internal step. It must not score final fit, verify contacts, draft outreach, contact anyone, scrape, browse, automate collection, perform OCR, or write externally. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
 
-Use `skills/fit-classification/SKILL.md` for opportunity qualification before contact verification or outreach drafting. Fit classification is an internal scoring and recommendation step, so it does not require approval by itself. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
+Use `skills/fit-classification/SKILL.md` for opportunity qualification before contact verification or outreach drafting. Fit classification is an internal scoring and recommendation step, so it does not require approval by itself. Its readiness guard must run before the scoring model; partial readiness may create a limited pre-fit review, while insufficient readiness must stop full classification. If its recommended next action is external-facing or consequential, route that action through `skills/approval-before-action/SKILL.md` before execution.
 
 Use `skills/contact-verification/SKILL.md` after fit classification and before outreach drafting to verify the safest official contact route. Contact verification is internal and does not require approval by itself. If it recommends any external-facing next action, including email, contact form submission, social DM, Gmail draft creation if connected later, CRM/spreadsheet writes, or contacting a private route, route that action through `skills/approval-before-action/SKILL.md`.
 
@@ -193,7 +193,7 @@ Update state when new confirmed facts, user preferences, assumptions, unknowns, 
 
 When an artist profile is created or updated, record its profile ID, status, confirmed facts, assumptions, unknowns, missing assets, source notes, sensitive/private fields, positioning summary, sound/scene summary, target markets, anti-targets, booking constraints, outreach voice notes, claims safe to use, claims not safe to use, recommended next internal step, and any workflow blocked by missing fields.
 
-When an opportunity is classified, record its fit score, fit classification, score breakdown, confirmed facts, assumptions, unknowns, red flags, source links, recommended next action, and whether contact research should happen next.
+When an opportunity is classified or reviewed for fit readiness, record its fit readiness status, fit score when allowed, fit classification when allowed, score breakdown when allowed, confirmed facts, assumptions, unknowns, missing readiness notes, red flags, source links, recommended next action, and whether contact research should happen next.
 
 When an opportunity candidate is discovered, record its discovery ID, candidate opportunity ID, source type, evidence summary, extracted lineup/artists, duplicate check result, candidate status, initial priority guess, confirmed facts, assumptions, unknowns, risk notes, source links, recommended next skill, and whether fit classification should happen next.
 

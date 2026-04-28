@@ -26,6 +26,67 @@ Use it for:
 
 Read `booking-state.md` first when it exists, especially `Artist Profile`, `Positioning / Sound / Scene Fit`, `EPK Assets`, `Target Markets`, `Booking Goals`, `Opportunity Pipeline`, `Risk Register`, and `Do-not-contact List`.
 
+## Readiness Guard
+
+Run this guard before using the 100-point scoring model. Fit classification may produce a full score only when all minimum readiness conditions are met:
+
+- Artist/project name is known.
+- Basic sound/scene context exists.
+- The opportunity candidate has at least one source link or user-provided evidence note.
+- Source hygiene separates confirmed facts, assumptions, and unknowns.
+- Enough artist context exists to evaluate sonic/genre fit and scene/culture fit.
+- Missing artist assets or claims are recorded as missing/unverified rather than invented.
+
+If readiness is partial, produce a limited pre-fit review only. Do not produce a final numeric score, do not assign an `A`/`B`/ready-for-contact-verification classification, and do not advance to outreach readiness. List the missing profile and opportunity evidence, then route back to `skills/artist-profile/SKILL.md`, `skills/booking-state/SKILL.md` transfer/normalization, or `skills/opportunity-discovery/SKILL.md`.
+
+If readiness is insufficient, output `Not ready for fit classification.` and use the blocked format below.
+
+Stop or pause full scoring when:
+
+- Artist/project identity is missing.
+- Sound/scene context is missing.
+- Opportunity source/evidence is missing.
+- Important artist claims lack source hygiene labels.
+- The opportunity came from limited manual lead intake and has not been transferred or normalized into `booking-state.md`.
+- The user is asking to classify based on vibe alone without enough source evidence.
+- The user is asking to use unverified claims externally.
+- Required context would force CircuitScout to invent data.
+
+### Limited Pre-Fit Review Format
+
+Use this format when some evidence exists, but readiness is not sufficient for official scoring:
+
+```markdown
+## Limited Pre-Fit Review: [Opportunity name or ID]
+
+- Opportunity ID:
+- What can be assessed:
+- What cannot be assessed yet:
+- Evidence available:
+- Missing artist context:
+- Missing opportunity evidence:
+- Assumptions/unknowns:
+- Risk notes:
+- Recommended next internal skill:
+- `booking-state.md` updates required:
+```
+
+### Not Ready For Fit Classification Format
+
+Use this format when minimum fields are missing:
+
+```markdown
+## Not Ready For Fit Classification: [Opportunity name or ID if known]
+
+- Reason blocked:
+- Missing minimum fields:
+- Artist-profile needed:
+- Intake-to-booking-state transfer needed:
+- Opportunity-discovery needs more evidence:
+- Recommended next internal skill:
+- `booking-state.md` updates required:
+```
+
 ## Scoring Model
 
 Score each opportunity out of 100 points:
@@ -41,7 +102,7 @@ Score each opportunity out of 100 points:
 | Contact quality | 5 |
 | Strategic value | 5 |
 
-Use integers or half-points. If evidence is missing, score conservatively and explain the unknown. Do not fill gaps with invented facts.
+Use integers or half-points only after the readiness guard passes. If non-critical evidence is still missing after minimum readiness is met, score conservatively and explain the unknown. Do not fill gaps with invented facts.
 
 ## Classification Bands
 
@@ -218,7 +279,7 @@ Apply these after scoring:
 
 ## Output Format
 
-Use this structure for each opportunity:
+Use this structure for each opportunity only after the readiness guard passes:
 
 ```markdown
 ## Fit Classification: [Opportunity name]
@@ -287,6 +348,7 @@ This skill does not write outreach. If a later workflow routes a classified oppo
 
 When updating `booking-state.md`, store fit evidence in `Opportunity Pipeline` or a linked note:
 
+- Fit readiness status, such as `Ready for fit classification`, `Limited pre-fit`, or `Not ready for fit classification`.
 - Fit score.
 - Fit classification.
 - Score breakdown.
@@ -297,5 +359,6 @@ When updating `booking-state.md`, store fit evidence in `Opportunity Pipeline` o
 - Source links.
 - Recommended next action.
 - Whether contact research should happen next.
+- Missing readiness notes when full scoring is paused.
 
 If the classification creates or changes a consequential decision, add a `Decision Log` entry. If it identifies risk that may affect future work, add or update `Risk Register`. If the next step is external-facing or consequential, create an approval-gated proposal through `skills/approval-before-action/SKILL.md`.
