@@ -56,6 +56,10 @@ Artist profile
 -> Retrospective
 ```
 
+## First-Use Intake
+
+For a lighter first pass, start with `examples/booking-desk/artist-profile-intake.md` before filling the full `examples/booking-desk/booking-state.md` template. A fictional completed fixture is available at `examples/booking-desk/artist-profile-intake-example.md`.
+
 ## Human Approval Rules
 
 CircuitScout can research, classify, draft, summarize, prepare actions, and maintain tracking state. External-facing actions require explicit human approval every time.

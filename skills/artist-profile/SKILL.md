@@ -25,6 +25,8 @@ Use it to:
 - Audit whether the artist profile is ready for discovery, fit classification, contact verification, outreach drafting, or serious booking negotiation.
 - Identify missing fields and route the workflow back to the correct internal next step.
 
+For first use, a new project may start with the compact `examples/booking-desk/artist-profile-intake.md` template. Transfer only confirmed fields, clearly labeled assumptions, unknowns, and missing assets from that intake into `booking-state.md`.
+
 Read `booking-state.md` first when it exists, especially:
 
 - `Artist Profile`
