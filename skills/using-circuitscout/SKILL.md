@@ -48,6 +48,8 @@ Minimum readiness before opportunity discovery:
 
 Stop and route back to `skills/artist-profile/SKILL.md` when there is no artist/project name, no sound/scene context, unclear source hygiene, a request for outreach before EPK/safe claims/contact readiness exists, or a request to use unverifiable claims externally.
 
+`skills/opportunity-discovery/SKILL.md` also has its own readiness guard. It may still allow narrow manual lead intake with limitations, but it must not advance to full fit classification or outreach readiness until artist-profile and booking-state context are usable.
+
 ## Operating Modes
 
 ### Direct Mode

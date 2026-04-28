@@ -52,6 +52,44 @@ Use whatever reliable inputs are available, but do not invent missing data:
 
 If the lead is too vague to identify a candidate, ask for the minimum missing detail or mark the candidate as `Too vague`.
 
+## Readiness Guard
+
+Opportunity discovery may proceed only when one of these readiness paths is true:
+
+### Canonical Booking-State Ready
+
+Proceed with normal discovery when `booking-state.md` has enough artist context:
+
+- Artist/project name is known.
+- Project type is known or explicitly marked `Unknown`.
+- Basic sound/scene context exists.
+- Target market or discovery scope exists, or the user explicitly asks for broad discovery.
+- Key artist claims have source hygiene labels such as confirmed fact, user-provided, assumption, unknown, needs verification, safe to use, or not safe to use.
+- Missing outreach-critical assets are recorded as missing rather than invented.
+
+### Narrow Manual Lead Intake
+
+Proceed with limited discovery when the user provides a narrow manual lead, even if the full artist profile is incomplete, when:
+
+- Enough lead context exists to create or update one candidate record.
+- Missing artist context is recorded as a limitation.
+- Output is restricted to candidate intake, cleanup, duplicate checks, unknowns, and booking-state update recommendations.
+- The candidate does not proceed to full fit classification, contact verification, outreach drafting, or outreach readiness until `skills/artist-profile/SKILL.md` and `skills/booking-state/SKILL.md` improve the missing artist context.
+
+### Stop Or Pause Discovery
+
+Stop or pause discovery and use the `Not Ready For Discovery` output when:
+
+- No artist/project name exists.
+- No sound/scene context exists.
+- No discovery scope exists and the user has not asked for broad discovery.
+- Source hygiene is unclear for important artist claims.
+- The user asks for outreach before EPK, safe claims, contact readiness, and approval gates are ready.
+- The user asks to use unverifiable claims externally.
+- The lead is too vague to create even a candidate record.
+
+Do not make discovery too rigid: a specific user-provided lead can still be normalized as a limited candidate intake when the artist profile is incomplete. Mark limitations clearly and keep the next step internal.
+
 ## Discovery Modes
 
 ### Manual Lead Intake
@@ -253,8 +291,24 @@ Use this structure for each discovered candidate:
 -
 ```
 
+If the readiness guard blocks or limits discovery, use this structure instead:
+
+```markdown
+## Not Ready For Discovery
+
+- Reason discovery is blocked or limited:
+- Missing minimum fields:
+- Compact intake needed:
+- Intake-to-booking-state transfer needed:
+- Allowed limited action, if any:
+- Recommended next internal skill:
+- booking-state.md updates required:
+```
+
 For `Recommended Next Skill`, use one of:
 
+- `skills/artist-profile/SKILL.md` when compact intake, artist profile cleanup, source hygiene, safe claims, missing assets, or artist context are required before discovery can continue.
+- `skills/booking-state/SKILL.md` when intake must be transferred into canonical booking-state or booking-state needs updates before discovery can continue.
 - `skills/fit-classification/SKILL.md` when the candidate is ready to evaluate.
 - `skills/opportunity-discovery/SKILL.md` when more user-provided source evidence or lead cleanup is needed.
 - `skills/contact-verification/SKILL.md` only after fit classification has already accepted the opportunity or the user specifically asks to verify an existing contact route.
