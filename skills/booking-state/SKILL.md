@@ -23,6 +23,8 @@ Read `booking-state.md` before:
 
 If no state file exists and the user wants ongoing tracking, initialize one from `examples/booking-desk/booking-state.md`.
 
+If the workflow starts from a completed compact artist intake, use `examples/booking-desk/intake-to-booking-state-transfer.md` before treating the intake as canonical booking state. The transfer must preserve confirmed facts, assumptions, unknowns, claims needing verification, sensitive/private fields, missing assets, risks, and open questions as separate state.
+
 ## When To Update
 
 Update `booking-state.md` when:
