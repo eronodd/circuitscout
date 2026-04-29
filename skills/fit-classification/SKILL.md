@@ -348,7 +348,7 @@ This skill does not write outreach. If a later workflow routes a classified oppo
 
 When updating `booking-state.md`, store fit evidence in `Opportunity Pipeline` or a linked note:
 
-- Fit readiness status, such as `Ready for fit classification`, `Limited pre-fit`, or `Not ready for fit classification`.
+- Fit readiness status, such as `Ready for fit classification`, `Limited pre-fit`, `Not ready for fit classification`, `Ready for contact verification`, `Monitor`, or `Rejected / archived`.
 - Fit score.
 - Fit classification.
 - Score breakdown.
@@ -359,6 +359,6 @@ When updating `booking-state.md`, store fit evidence in `Opportunity Pipeline` o
 - Source links.
 - Recommended next action.
 - Whether contact research should happen next.
-- Missing readiness notes when full scoring is paused.
+- Missing readiness notes when full scoring is paused or when next-stage routing is blocked by missing source evidence, timing uncertainty, no verified contact route, or an archive/rejection reason.
 
 If the classification creates or changes a consequential decision, add a `Decision Log` entry. If it identifies risk that may affect future work, add or update `Risk Register`. If the next step is external-facing or consequential, create an approval-gated proposal through `skills/approval-before-action/SKILL.md`.

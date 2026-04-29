@@ -16,6 +16,20 @@ Promoter/collective text visible: Signal Bloom.
 User note only, no live research performed: hxxps://example.invalid/signal-bloom-courtyard-frequencies
 ```
 
+Fictional artist context already present in local booking state:
+
+```text
+Artist/project name: Echo Radius
+Project type: DJ / live hybrid
+Base: Lisbon, Portugal
+Sound/scene context: leftfield house, broken beat, dubby techno, textural club tools, ambient-adjacent live hardware passages
+Target markets: Portugal and nearby Iberian club/collective circuits
+Booking goals: small club nights, collective events, and intimate electronic rooms in spring/summer 2026
+Artist level: emerging regional artist with a complete basic EPK, one live/DJ video, and a current mix link
+Travel/logistics: Portugal weekend dates are plausible, but exact availability and fee constraints are unknown
+Safe-to-use claims: only user-provided profile facts above; no invented press, metrics, labels, or past bookings
+```
+
 ## 2. opportunity-discovery Output
 
 | Field | Example output |
@@ -45,27 +59,37 @@ User note only, no live research performed: hxxps://example.invalid/signal-bloom
 
 ## 3. fit-classification Output
 
-Example score breakdown:
-
-| Criterion | Score | Rationale |
-| --- | ---: | --- |
-| Sound / scene alignment | 4 | Scene clues match leftfield electronic, broken beat, dubby techno, and ambient programming. |
-| Bill / peer alignment | 3 | Lineup looks plausible for a small electronic night, but artist identities are unverified. |
-| Market relevance | 3 | Porto is a plausible target market, assuming the artist has travel or regional goals there. |
-| Opportunity scale | 3 | Small club or collective night may be reachable, but capacity and fee expectations are unknown. |
-| Evidence quality | 2 | Evidence comes only from a user-provided note; official sources are missing. |
-| Contact readiness | 1 | No verified contact route exists yet. |
+Readiness guard result:
 
 | Field | Example output |
 | --- | --- |
-| Final score | 16 / 30 |
-| Classification | Promising but unverified |
+| Fit readiness status | Ready for fit classification |
+| Missing readiness notes | None blocking full scoring. Official source, exact date, lineup status, and contact route still need verification before outreach. |
+
+Example 100-point score breakdown:
+
+| Category | Max | Score | Rationale |
+| --- | ---: | ---: | --- |
+| Sonic / genre fit | 25 | 21 | Scene clues match Echo Radius's leftfield house, broken beat, dubby techno, and ambient-adjacent hardware context. |
+| Scene / culture fit | 20 | 16 | A small collective-style electronic night appears culturally plausible, but the flyer-style note is unverified and the named artists are not source-checked. |
+| Artist level fit | 15 | 10 | The opportunity appears reachable for an emerging regional artist, but capacity, billing patterns, and fee expectations are unknown. |
+| Audience fit | 10 | 7 | The likely room seems compatible with Echo Radius's club and live-hardware positioning, but audience size and context are unknown. |
+| Timing / booking window | 10 | 4 | Late May 2026 may be actionable, but the exact date, lineup status, and booking window are unknown. |
+| Geography / logistics | 10 | 8 | Porto is plausible from a Lisbon base and fits the Portugal/Iberian target region, but availability and fee constraints are unknown. |
+| Contact quality | 5 | 0 | No verified contact route exists in this fixture. |
+| Strategic value | 5 | 4 | A credible Porto collective night could support regional route-building if verified. |
+
+| Field | Example output |
+| --- | --- |
+| Final score | 70 / 100 |
+| Classification | B / Worth pitching |
+| Override rules applied | No verified contact route caps the classification at B / Worth pitching. Do not route to outreach until contact verification succeeds. |
 | Confirmed facts | User provided event name, city, venue text, rough edition/date, scene clues, visible lineup, and promoter/collective text. |
-| Assumptions | The artist being represented fits leftfield electronic programming. Signal Bloom may be the relevant promoter or curator. |
-| Unknowns | Official event existence; final lineup accuracy; exact date; booking decision maker; official contact route; submission policy; compensation expectations. |
+| Assumptions | Echo Radius's fictional booking-state context is current. Signal Bloom may be the relevant promoter or curator. The opportunity may fit emerging regional electronic programming. |
+| Unknowns | Official event existence; final lineup accuracy; exact date; booking decision maker; official contact route; submission policy; compensation expectations; final artist availability. |
 | Red flags | Evidence quality is low until an official source is checked. No verified contact. Exact date unknown. |
-| Recommended next action | Verify official event or organization source before any outreach draft. |
-| `booking-state.md` updates required | Update Opportunity Pipeline with final score, classification, score breakdown, red flags, and next action. Add handoff from fit-classification to contact-verification. Keep status as internal research only. |
+| Recommended next action | Run contact verification and official-source verification before any outreach draft. |
+| `booking-state.md` updates required | Update Opportunity Pipeline with fit readiness status, missing readiness notes, final score, classification, score breakdown, red flags, and next action. Add handoff from fit-classification to contact-verification. Keep status as internal research only. |
 
 ## 4. contact-verification Output
 
@@ -111,9 +135,9 @@ Any future external action would require `skills/approval-before-action/SKILL.md
 
 ### Opportunity Pipeline
 
-| Discovery ID | Opportunity ID | Name | Type | Event / series / organization relationship | City | Country | Date / edition | Source links | Source type | Evidence summary | Extracted lineup / artists | Venue | Promoter / collective | Genre / scene clues | Duplicate check result | Candidate status | Initial priority guess | Status | Priority | Fit score | Fit classification | Score breakdown | Confirmed facts | Assumptions | Unknowns | Red flags | Next action | Contact research next | Recommended next skill | Owner | Notes |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| DSC-ML-001 | OPP-ML-001 | Signal Bloom: Courtyard Frequencies | Club night / collective event candidate | Event appears connected to Signal Bloom; relationship unverified | Porto | Portugal | Late May 2026 / spring edition; exact date unknown | User-provided note: `hxxps://example.invalid/signal-bloom-courtyard-frequencies` | User-provided manual lead | Flyer/link-like note includes event name, city, venue, rough edition/date, lineup, promoter/collective text, and scene clues. | Mara Vale; Jun Risco; Pale Circuit; Nia Quell | Atrium 9 | Signal Bloom | Leftfield house; broken beat; dubby techno; ambient room; local live hardware set | No duplicate found in local example state | Needs official-source verification | Medium | Internal research only | Medium | 16 | Promising but unverified | Sound 4; bill 3; market 3; scale 3; evidence 2; contact readiness 1 | User provided visible text and source note | Small club/collective opportunity; possible fit for leftfield electronic artist | Official source; exact date; booking owner; contact route; submission policy | Unverified manual source; no contact; exact date unknown | Verify official source or ask user for official link | Required before outreach drafting | `skills/contact-verification/SKILL.md` | Codex/OpenAI workflow | Manual fixture row; no external action |
+| Discovery ID | Opportunity ID | Name | Type | Event / series / organization relationship | City | Country | Date / edition | Source links | Source type | Evidence summary | Extracted lineup / artists | Venue | Promoter / collective | Genre / scene clues | Duplicate check result | Candidate status | Initial priority guess | Fit readiness status | Missing readiness notes | Status | Priority | Fit score | Fit classification | Score breakdown | Confirmed facts | Assumptions | Unknowns | Red flags | Next action | Contact research next | Recommended next skill | Owner | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---: | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| DSC-ML-001 | OPP-ML-001 | Signal Bloom: Courtyard Frequencies | Club night / collective event candidate | Event appears connected to Signal Bloom; relationship unverified | Porto | Portugal | Late May 2026 / spring edition; exact date unknown | User-provided note: `hxxps://example.invalid/signal-bloom-courtyard-frequencies` | User-provided manual lead | Flyer/link-like note includes event name, city, venue, rough edition/date, lineup, promoter/collective text, and scene clues. | Mara Vale; Jun Risco; Pale Circuit; Nia Quell | Atrium 9 | Signal Bloom | Leftfield house; broken beat; dubby techno; ambient room; local live hardware set | No duplicate found in local example state | Needs official-source verification | Medium | Ready for contact verification | None blocking full scoring; official source, exact date, lineup status, and contact route still need verification before outreach | Internal research only | Medium | 70 | B / Worth pitching | Sonic 21/25; scene 16/20; artist level 10/15; audience 7/10; timing 4/10; geography 8/10; contact quality 0/5; strategic value 4/5 | User provided visible text, source note, and fictional Echo Radius profile context | Small club/collective opportunity; possible fit for Echo Radius; Signal Bloom may be the promoter | Official source; exact date; booking owner; contact route; submission policy; final artist availability | Unverified manual source; no contact; exact date unknown | Run contact verification and official-source verification before any outreach draft | Required before outreach drafting | `skills/contact-verification/SKILL.md` | Codex/OpenAI workflow | Manual fixture row; no external action |
 
 ### Contact Register
 
@@ -136,7 +160,7 @@ Any future external action would require `skills/approval-before-action/SKILL.md
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HND-ML-001 | 2026-04-27 | User manual intake | `skills/opportunity-discovery/SKILL.md` | Intake to discovery | User supplied a fictional flyer/link-like note for a possible Porto club night. | None; internal analysis only | Extract candidate opportunity fields. |
 | HND-ML-002 | 2026-04-27 | `skills/opportunity-discovery/SKILL.md` | `skills/fit-classification/SKILL.md` | Discovery to fit | Candidate OPP-ML-001 created with unverified source evidence and unknown official source/contact. | None; internal analysis only | Score fit and identify red flags. |
-| HND-ML-003 | 2026-04-27 | `skills/fit-classification/SKILL.md` | `skills/contact-verification/SKILL.md` | Fit to contact verification | Fit is promising but unverified; no outreach readiness yet. | None; internal analysis only | Verify official contact route or ask user for one. |
+| HND-ML-003 | 2026-04-27 | `skills/fit-classification/SKILL.md` | `skills/contact-verification/SKILL.md` | Fit to contact verification | Fit is B / Worth pitching, but no outreach readiness exists until contact and official-source verification succeed. | None; internal analysis only | Verify official contact route or ask user for one. |
 | HND-ML-004 | 2026-04-27 | `skills/contact-verification/SKILL.md` | Human operator | Stop before outreach | Contact status remains Unknown; outreach drafting should not proceed. | Approval would be required before any future external action. | Ask user for official source/contact route. |
 
 ## 7. What Not To Do
