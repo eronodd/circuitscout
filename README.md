@@ -64,6 +64,8 @@ Before treating a completed compact intake as canonical state, use `examples/boo
 
 For the full examples map and recommended order, see `examples/booking-desk/README.md`.
 
+To manually validate the full markdown-only workflow with fictional data and no connectors, use `examples/booking-desk/manual-workflow-test-script.md`.
+
 ## Human Approval Rules
 
 CircuitScout can research, classify, draft, summarize, prepare actions, and maintain tracking state. External-facing actions require explicit human approval every time.
